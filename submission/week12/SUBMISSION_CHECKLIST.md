@@ -21,8 +21,8 @@ Mark only what is actually true at hand-in.
 ## Git and host
 
 - [x] Meaningful commits on `main` (charter first)
-- [ ] GitHub repository URL
-- [ ] At least two Vercel deployments
+- [x] GitHub repository URL: https://github.com/miguelbbuilds-gif/pausa-mx-week12
+- [x] At least two Vercel deployments (`dpl_AMuSE6oWiWPg85Eco75J7QmpdcWo`, `dpl_Bxs8aaZPSBTqEQB2JXH1W3emmMXk`)
 - [ ] Real purchased domain + HTTPS in an unauthenticated browser
 
 ## Tests
