@@ -28,3 +28,8 @@ Authentic operational notes. Not a full chat transcript. The Cursor conversation
 - GitHub: https://github.com/miguelbbuilds-gif/pausa-mx-week12
 - First Vercel production deploy: `dpl_AMuSE6oWiWPg85Eco75J7QmpdcWo` → https://pausa-mx-week12.vercel.app (HTTP 200 without Vercel login).
 - Second production deploy (GitHub integration): `dpl_Bxs8aaZPSBTqEQB2JXH1W3emmMXk`.
+
+## 2026-11-01 — Unstyled localhost + save message
+
+- Root cause of missing CSS: no `postcss.config.mjs` / `@tailwindcss/postcss`. Next was not expanding Tailwind utilities (`@theme` warning). After adding them, `next build` no longer prints that warning. Playwright measured hero font-size > 28px and body background `rgb(247, 244, 238)`.
+- Save still requires founder keys. Placeholders no longer count as configured. Copy points to `supabase/SETUP.md`. Not claimed working.

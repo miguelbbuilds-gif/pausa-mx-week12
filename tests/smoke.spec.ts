@@ -1,5 +1,15 @@
 import { expect, test } from "@playwright/test";
 
+test("home applies Tailwind layout styles", async ({ page }) => {
+  await page.goto("/");
+  const heading = page.getByRole("heading", { name: /antes de comprar/i });
+  await expect(heading).toBeVisible();
+  const size = await heading.evaluate((el) => Number.parseFloat(getComputedStyle(el).fontSize));
+  expect(size).toBeGreaterThan(28);
+  const bg = await page.locator("body").evaluate((el) => getComputedStyle(el).backgroundColor);
+  expect(bg).toMatch(/rgb\(\s*247,\s*244,\s*238\s*\)/);
+});
+
 test("home, about, privacy and product routes render", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /antes de comprar/i })).toBeVisible();
@@ -33,7 +43,7 @@ test("unauthenticated save does not claim success", async ({ page }) => {
   await page.getByRole("button", { name: "Ver comparación" }).click();
   await page.getByRole("button", { name: "Guardar evaluación" }).click();
   await expect(page.getByRole("status")).toContainText(
-    /configurado|Google|sesión/i,
+    /claves|configurado|Google|sesión/i,
   );
   await expect(page.getByText("Evaluación guardada")).toHaveCount(0);
 });

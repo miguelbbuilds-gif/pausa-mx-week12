@@ -22,6 +22,10 @@ Preview runs `evaluatePurchase` in the browser. Save is a server action that val
 
 Session refresh lives in `src/proxy.ts` (Next.js 16 replacement for `middleware.ts`), Node runtime.
 
+## 2026-11-01 — Unstyled UI
+
+`@import "tailwindcss"` was present but Next.js never compiled utilities: `postcss.config.mjs` and `@tailwindcss/postcss` were missing. That is why localhost rendered unstyled HTML. Added the PostCSS plugin from the Next.js 16 CSS guide.
+
 ## 2026-11-01 — Domain
 
 RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 Object not found at Identity Digital on 2026-11-01, which usually means the names are not registered. That is **not** a registrar confirmation of cart price. `pausamx.xyz` RDAP could not be completed in this session (DNS failure to `rdap.nic.xyz`). No domain was purchased.

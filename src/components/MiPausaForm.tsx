@@ -277,9 +277,12 @@ function SaveFeedback({
   if (!configured) {
     return (
       <p className="rounded-xl bg-warning-bg p-3 text-sm text-warning" role="status">
-        El guardado en la nube aún no está configurado. Puedes comparar en
-        vista previa. El fundador debe pegar las claves de Supabase. No se
-        usa el almacenamiento local del navegador como sustituto seguro.
+        El guardado real no está activo en este entorno: faltan las claves
+        públicas de Supabase. Puedes comparar aquí (los montos no se envían).
+        No se usa el almacenamiento local del navegador. Pasos: crear el
+        proyecto, correr la migración SQL, pegar URL y anon key en{" "}
+        <code className="font-mono">.env.local</code> y en Vercel. Guía:{" "}
+        <code className="font-mono">supabase/SETUP.md</code>.
       </p>
     );
   }

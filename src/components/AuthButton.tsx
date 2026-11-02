@@ -43,8 +43,11 @@ export function AuthButton() {
 
   if (!configured) {
     return (
-      <span className="text-xs text-muted" title="Falta configurar Supabase">
-        Guardado no configurado
+      <span
+        className="whitespace-nowrap text-xs text-muted"
+        title="Faltan NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY. Ver supabase/SETUP.md"
+      >
+        Falta .env.local
       </span>
     );
   }
