@@ -4,19 +4,21 @@ Only real deployments belong here. Preview URLs from `next dev` are not producti
 
 ## GitHub
 
-Repository creation and push are recorded when they succeed.
-
-- URL: *pending this session’s `gh repo create` / push*
+- URL: https://github.com/miguelbbuilds-gif/pausa-mx-week12
+- Pushed `main` from this machine on 2026-11-01 (local) / 2026-11-02 UTC.
 
 ## Vercel
 
-| # | When | Identifier | URL | Notes |
-| --- | --- | --- | --- | --- |
-| 1 | pending | | | First production deploy |
-| 2 | pending | | | Redeploy after test fix or docs |
+Project: `miguel-d52d/pausa-mx-week12`  
+Production alias: https://pausa-mx-week12.vercel.app
 
-Public check: an unauthenticated HTTP GET of the production URL must return 200. An internal preview is not enough.
+| # | When (UTC) | Identifier | URL | Notes |
+| --- | --- | --- | --- | --- |
+| 1 | 2026-11-02 03:41 | `dpl_AMuSE6oWiWPg85Eco75J7QmpdcWo` | https://pausa-mx-week12-qhofpr48e-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | `npx vercel --yes --prod`. Inspector: https://vercel.com/miguel-d52d/pausa-mx-week12/AMuSE6oWiWPg85Eco75J7QmpdcWo |
+| 2 | pending this commit | | | Redeploy after writing this log |
+
+CLI reported `deploymentProtection: vercel_authentication`. An unauthenticated `curl -I https://pausa-mx-week12.vercel.app` still returned **HTTP/1.1 200 OK** with HTML title “PAUSA MX — Antes de comprar, entiende lo que comprometes”. `/product` HTML includes “Mi Pausa” and the local-preview notice. That is the public check for deployment 1.
 
 ## Domain
 
-See `docs/DOMAIN_SETUP.md`. Purchase is a founder step.
+See `docs/DOMAIN_SETUP.md`. Purchase is a founder step. Production today is the vercel.app URL only.

@@ -25,3 +25,5 @@ Authentic operational notes. Not a full chat transcript. The Cursor conversation
 - Bug found in tests: `Math.round(1.005 * 100) === 100`. Replaced `toCents` with half-up on a three-decimal pesos string.
 - Playwright smoke and Vitest added. Supabase keys not present; preview-only path used.
 - GitHub account `miguelbbuilds-gif` authenticated. Vercel CLI logged in as the same user.
+- GitHub: https://github.com/miguelbbuilds-gif/pausa-mx-week12
+- First Vercel production deploy: `dpl_AMuSE6oWiWPg85Eco75J7QmpdcWo` → https://pausa-mx-week12.vercel.app (HTTP 200 without Vercel login).
