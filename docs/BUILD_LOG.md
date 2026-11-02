@@ -16,3 +16,12 @@ Authentic operational notes. Not a full chat transcript. The Cursor conversation
 - Generated UI mockup via Cursor image generation; stored as `docs/mockup.png`.
 - Benchmark pages fetched: BBVA México interactivos; BBVA calculadora de presupuestos.
 - First commit: charter, personas, packet only (plus source review and mockup needed by the packet).
+
+## 2026-11-01 — Architecture and Mi Pausa
+
+- Next.js 16 App Router already scaffolded in the folder; wired routes `/`, `/product`, `/about`, `/privacy`.
+- Session refresh uses `src/proxy.ts` (Next.js 16), not deprecated `middleware.ts`.
+- Preview is client-side `evaluatePurchase`. Save is a server action with Zod + engine recompute.
+- Bug found in tests: `Math.round(1.005 * 100) === 100`. Replaced `toCents` with half-up on a three-decimal pesos string.
+- Playwright smoke and Vitest added. Supabase keys not present; preview-only path used.
+- GitHub account `miguelbbuilds-gif` authenticated. Vercel CLI logged in as the same user.

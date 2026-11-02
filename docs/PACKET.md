@@ -222,7 +222,7 @@ Not allowed to fabricate: interviews, team votes, domain purchase, DEMO video, B
 
 ## Engine sketch (normative)
 
-Let amounts be decimal MXN rounded to 2 places using banker’s rounding only after cent conversion (integer cents).
+Let amounts be decimal MXN converted to integer cents with half-up rounding on the third decimal of pesos (not JavaScript `Math.round(mxn * 100)`, which fails for values such as `1.005`).
 
 - `moneyAfterObligations = availableMoney − essentialExpenses − committedPayments`
 - `immediateCost = full payment ? purchasePrice : downPayment`
