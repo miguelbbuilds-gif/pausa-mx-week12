@@ -1,0 +1,18 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Dependencies and build
+node_modules
+.next
+out
+coverage
+playwright-report
+test-results
+*.tsbuildinfo
