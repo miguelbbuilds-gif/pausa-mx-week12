@@ -1,30 +1,32 @@
 # Domain setup — PAUSA MX
 
-The agent is **not** authorized to purchase a domain or a paid subscription.
+The agent is **not** authorized to purchase a domain or a paid subscription. No PAUSA MX domain is owned by this project as of 2026-11-01.
 
-## Candidate names checked 2026-11-01
+## Candidate names
 
-| Name | Check | Result |
+| Name | Registry check | Registrar list price (Porkbun public table, 2026-11-01) |
 | --- | --- | --- |
-| pausamx.site | Identity Digital RDAP `GET https://rdap.identitydigital.services/rdap/domain/pausamx.site` | HTTP **404** Object not found — not in that registry snapshot. **Not** a paid confirmation. |
-| pausamx.online | Same RDAP host | HTTP **404** Object not found. **Not** a paid confirmation. |
-| pausamx.xyz | `rdap.nic.xyz` | DNS lookup **failed** in this session. **Unknown.** Do not claim it is free. |
-| pausa.mx | NIC México | Not queried successfully here. `.mx` is often a worse first purchase for a course week. |
+| **pausamx.site** | Identity Digital RDAP 404 — not in registry snapshot | First year **USD 1.96**, renewal **USD 28.84** — https://porkbun.com/products/domains |
+| **pausamx.online** | Identity Digital RDAP 404 | Same Porkbun list: **USD 1.96** / **USD 28.84** |
+| pausamx.xyz | RDAP host for `.xyz` failed in an earlier session | Do not assume it is free |
+| pausa.mx | NIC México not queried successfully here | Skip for the course week unless you already own it |
 
-**Recommended first purchase for the founder:** `pausamx.site` on the venture Gmail, at a registrar (Porkbun, Namecheap, or Google Domains successor / Squarespace). Confirm the cart yourself; RDAP 404 is a strong hint, not a guarantee of standard pricing.
+RDAP 404 is **not** a cart. Confirm the name and the live price in Porkbun (or Namecheap) while signed into the **venture Gmail**. Premium names cost more than the TLD list.
 
-## What you do (one payment step)
+**Buy `pausamx.site` first.** If checkout says it is taken or premium, buy `pausamx.online`.
 
-1. In the venture Gmail, open a registrar.
-2. Search `pausamx.site`. If it is taken, try `pausamx.online`.
-3. Buy the cheapest first-year option. Privacy/WHOIS protection is fine if it is included in the free tier.
-4. Tell the agent the exact domain you now own.
+## What you do (the only payment step)
 
-## What happens after you buy
+1. Sign into Porkbun (or Namecheap) with the venture Gmail.
+2. Search `pausamx.site`.
+3. Purchase 1 year. WHOIS privacy is fine if it is included.
+4. Reply in this chat with the exact domain you now own. Do not paste account passwords.
 
-1. In Vercel → Project → Settings → Domains, add the name.
-2. At the registrar, create the DNS records Vercel shows (usually `A` 10.0.1.2 and a `CNAME` for `www` to `cname.vercel-dns.com`, or nameservers if you delegate fully).
-3. Wait for Vercel to mark the domain Verified.
-4. Confirm `https://pausamx.site` (or whichever you bought) loads **without** being logged into Vercel, in a private browser window.
+## After you buy
 
-Until that purchase exists, production is the `*.vercel.app` URL only, which is **not** the Week 12 “real purchased domain” requirement.
+1. Vercel → pausa-mx-week12 → Settings → Domains → add the name.
+2. At the registrar, create the records Vercel shows (`A` 10.0.1.2 and `www` CNAME to `cname.vercel-dns.com`, or nameservers).
+3. Wait until Vercel marks it Verified and HTTPS is issued.
+4. Open `https://<your-domain>` in a private window (not logged into Vercel).
+
+Until that exists, the public URL is only https://pausa-mx-week12.vercel.app, which does **not** satisfy the purchased-domain requirement.

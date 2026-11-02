@@ -23,7 +23,9 @@ Use these **fictional** figures (label them as demo data if you mention them in 
 
 Do **not** connect a bank. Do **not** ask the product what you should do.
 
-Complete: open the site → go to Mi Pausa → enter the figures → Ver comparación → read Comprar ahora vs Esperar → try Guardar (sign in with Google if the tester has an account).
+Use the **public** site https://pausa-mx-week12.vercel.app (or http://localhost:3000 if production is down). Capture real screenshots of that running UI — not `docs/mockup.png`.
+
+Complete: open the site → go to Mi Pausa → enter the figures → Ver comparación → read Comprar ahora vs Esperar → try Guardar (sign in with Google **only if** the header no longer says “Falta .env.local”).
 
 ---
 

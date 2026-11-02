@@ -38,6 +38,19 @@ test("full payment preview does not require sign-in", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Esperar" })).toBeVisible();
 });
 
+test("home remains usable at a phone viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const heading = page.getByRole("heading", { name: /antes de comprar/i });
+  await expect(heading).toBeVisible();
+  const box = await heading.boundingBox();
+  expect(box).not.toBeNull();
+  expect(box!.width).toBeLessThan(380);
+  await page.goto("/product");
+  await expect(page.getByRole("heading", { name: "Mi Pausa" })).toBeVisible();
+  await expect(page.getByRole("textbox", { name: "Dinero disponible" })).toBeVisible();
+});
+
 test("unauthenticated save does not claim success", async ({ page }) => {
   await fillValeriaContado(page);
   await page.getByRole("button", { name: "Ver comparación" }).click();

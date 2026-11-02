@@ -6,41 +6,34 @@ Evidence from actual runs. Times are local (UTC−6) on 2026-11-01 unless noted.
 
 Command: `npx vitest run`
 
-### Before rounding fix
+Latest run this session: **11 passed** (10 engine + 1 placeholder-env guard).
+
+### Real bug 1 — cent rounding
 
 `toCents` used `Math.round(mxn * 100)`.
 
-Observed: `1.005 * 100 === 100.49999999999999`, so `toCents(1.005) === 100` (one cent short of the intended half-up value 101).
+Observed: `1.005 * 100 === 100.49999999999999`, so `toCents(1.005) === 100` (one cent short of half-up 101).
 
-This is the **actual defect** found during mechanical testing. It was not invented.
+Fix: half-up on a three-decimal pesos string. Retest: `1.005 → 101`, `1.015 → 102`, `9.995 → 1000`.
 
-### After rounding fix
+### Real bug 2 — Playwright hydration
 
-`toCents` parses a three-decimal pesos string and half-ups the third decimal.
+Before a `data-hydrated` wait, fill hit SSR markup; React reset the fields. “Comprar ahora” never appeared (2 failed / 1 passed).
 
-`npx vitest run` — 10 passed, including `1.005 → 101`, `1.015 → 102`, `9.995 → 1000`.
+Fix: `useSyncExternalStore` + wait for `form[data-hydrated='true']`. Retest: Playwright **5 passed** (routes, Tailwind background/font-size, phone viewport 390×844, preview, unauthenticated save does not claim success).
 
-## Typecheck and lint
+### Real bug 3 — missing Tailwind PostCSS
 
-- `npx tsc --noEmit` — pass after typing `paymentMethod` as `PaymentMethod` (not `"full" as const`).
-- `npx eslint .` — pass after AuthButton stopped calling `setState` synchronously in the unconfigured branch.
+Localhost and first styled-check showed unstyled HTML. `next build` warned `Unknown at rule: @theme`.
 
-## Browser smoke
+Fix: `postcss.config.mjs` + `@tailwindcss/postcss`. Retest: body background `rgb(247, 244, 238)`, hero font-size > 28px; production HTML after deploy `858120b` includes compiled CSS chunk `0s9h0imqg4r4r.css`.
 
-Command: `npx playwright test` (Playwright starts `npm run dev`).
+## Typecheck, lint, build
 
-### Before hydration wait
+- `npx tsc --noEmit` — pass
+- `npx eslint .` — pass
+- `npm run build` — pass; `/product` is dynamic (`ƒ`)
 
-2 failed, 1 passed. Accessibility snapshot after fill still showed empty textboxes. Playwright had typed into the SSR markup; React hydration then reset the controlled inputs. “Comprar ahora” never appeared.
+## Authenticated save / Google / RLS
 
-### After `data-hydrated` + wait
-
-`useSyncExternalStore` marks the form hydrated. Tests wait for `form[data-hydrated='true']` then fill.
-
-`npx playwright test` — 3 passed (routes, full-payment preview, unauthenticated save does not claim success).
-
-Also: first `next build` listed `/product` as static `○` even though it reads the auth cookie. Set `export const dynamic = "force-dynamic"` so saved rows can appear after Google sign-in.
-
-## Authenticated save / RLS
-
-Not executed: Supabase project credentials were not in `.env.local` at the time of this log. Preview-only path was tested. Live Google save and two-user RLS remain founder steps (`supabase/SETUP.md`, `supabase/rls_isolation.sql`).
+**Not verified.** No `.env.local` and production still renders “Falta .env.local”. Preview-only path was tested. Do not treat save/reopen as done.

@@ -28,4 +28,4 @@ Session refresh lives in `src/proxy.ts` (Next.js 16 replacement for `middleware.
 
 ## 2026-11-01 — Domain
 
-RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 Object not found at Identity Digital on 2026-11-01, which usually means the names are not registered. That is **not** a registrar confirmation of cart price. `pausamx.xyz` RDAP could not be completed in this session (DNS failure to `rdap.nic.xyz`). No domain was purchased.
+RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 Object not found at Identity Digital on 2026-11-01, which usually means the names are not registered. Porkbun list price for `.site` and `.online` (https://porkbun.com/products/domains): first year USD 1.96, renewal USD 28.84. That is TLD list price, not a completed checkout. No domain was purchased. See `docs/DOMAIN_SETUP.md`.

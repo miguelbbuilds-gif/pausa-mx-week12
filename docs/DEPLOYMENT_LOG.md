@@ -15,7 +15,9 @@ Production alias: https://pausa-mx-week12.vercel.app
 | # | When (UTC) | Identifier | URL | Notes |
 | --- | --- | --- | --- | --- |
 | 1 | 2026-11-02 03:41 | `dpl_AMuSE6oWiWPg85Eco75J7QmpdcWo` | https://pausa-mx-week12-qhofpr48e-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | `npx vercel --yes --prod`. Inspector: https://vercel.com/miguel-d52d/pausa-mx-week12/AMuSE6oWiWPg85Eco75J7QmpdcWo |
-| 2 | 2026-11-02 03:42 | `dpl_Bxs8aaZPSBTqEQB2JXH1W3emmMXk` | https://pausa-mx-week12-j4n2v7st1-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | GitHub push of the first-deploy log. Inspect: `npx vercel inspect pausa-mx-week12-j4n2v7st1-miguel-d52d.vercel.app`. Alias still HTTP 200. |
+| 2 | 2026-11-02 03:42 | `dpl_Bxs8aaZPSBTqEQB2JXH1W3emmMXk` | https://pausa-mx-week12-j4n2v7st1-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | GitHub push of the first-deploy log. |
+| 3 | 2026-11-02 ~03:44 | GitHub auto | https://pausa-mx-week12-f9lm9tbgs-miguel-d52d.vercel.app | Later log commit. |
+| 4 | 2026-11-02 04:23 | `dpl_2z7f5nRkmkCZc7sRwGXmA5m46bAS` | https://pausa-mx-week12-cu9789n5p-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | Tailwind PostCSS fix. Unauthenticated HTTP 200. Header still “Falta .env.local” because Vercel has no Supabase env vars. |
 
 CLI reported `deploymentProtection: vercel_authentication`. An unauthenticated `curl -I https://pausa-mx-week12.vercel.app` still returned **HTTP/1.1 200 OK** with HTML title “PAUSA MX — Antes de comprar, entiende lo que comprometes”. `/product` HTML includes “Mi Pausa” and the local-preview notice. That is the public check for deployment 1.
 

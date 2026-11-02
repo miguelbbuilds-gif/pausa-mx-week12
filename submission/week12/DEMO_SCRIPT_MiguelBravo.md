@@ -6,9 +6,9 @@ Do not claim a domain, test, or save that did not happen.
 
 ## 1. Live domain (15s)
 
-Open the production URL in a private window. Say the address out loud.
+Open https://pausa-mx-week12.vercel.app in a private window. Say the address out loud.
 
-If only `*.vercel.app` exists: “This is the public Vercel deployment. The purchased domain is still a founder payment step.”
+If only `*.vercel.app` exists (true until you buy a domain): “This is the public Vercel deployment. The purchased domain is still a founder payment step.”
 
 If `pausamx.site` (or the name you bought) loads with HTTPS: show the lock and the name.
 

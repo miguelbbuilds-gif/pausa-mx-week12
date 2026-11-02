@@ -33,3 +33,9 @@ Authentic operational notes. Not a full chat transcript. The Cursor conversation
 
 - Root cause of missing CSS: no `postcss.config.mjs` / `@tailwindcss/postcss`. Next was not expanding Tailwind utilities (`@theme` warning). After adding them, `next build` no longer prints that warning. Playwright measured hero font-size > 28px and body background `rgb(247, 244, 238)`.
 - Save still requires founder keys. Placeholders no longer count as configured. Copy points to `supabase/SETUP.md`. Not claimed working.
+
+## 2026-11-01 — Final delivery pass
+
+- Vitest 11, Playwright 5, lint, tsc, build green. Production `dpl_2z7f5nRkmkCZc7sRwGXmA5m46bAS` serves styled HTML; save still blocked (no env vars).
+- Porkbun list: `.site` / `.online` USD 1.96 first year. No purchase.
+- `docs/DECISIONS.md` added as the Week 12 docs path (same log as root `DECISIONS.md`).
