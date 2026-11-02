@@ -11,25 +11,29 @@ test("home, about, privacy and product routes render", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Mi Pausa" })).toBeVisible();
 });
 
-test("full payment preview does not require sign-in", async ({ page }) => {
+async function fillValeriaContado(page: import("@playwright/test").Page) {
   await page.goto("/product");
-  await page.getByLabel("Dinero disponible").fill("10000");
-  await page.getByLabel("Gastos esenciales próximos").fill("4000");
-  await page.getByLabel("Otros pagos ya comprometidos").fill("1000");
-  await page.getByLabel("Precio de contado").fill("2500");
+  await expect(page.locator("form[data-hydrated='true']")).toBeVisible();
+  await page.getByRole("textbox", { name: "Dinero disponible" }).fill("10000");
+  await page.getByRole("textbox", { name: "Gastos esenciales próximos" }).fill("4000");
+  await page.getByRole("textbox", { name: "Otros pagos ya comprometidos" }).fill("1000");
+  await page.getByRole("textbox", { name: "Precio de contado" }).fill("2500");
+  await expect(page.getByRole("textbox", { name: "Dinero disponible" })).toHaveValue("10000");
+}
+
+test("full payment preview does not require sign-in", async ({ page }) => {
+  await fillValeriaContado(page);
   await page.getByRole("button", { name: "Ver comparación" }).click();
   await expect(page.getByRole("heading", { name: "Comprar ahora" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Esperar" })).toBeVisible();
 });
 
 test("unauthenticated save does not claim success", async ({ page }) => {
-  await page.goto("/product");
-  await page.getByLabel("Dinero disponible").fill("10000");
-  await page.getByLabel("Gastos esenciales próximos").fill("4000");
-  await page.getByLabel("Otros pagos ya comprometidos").fill("1000");
-  await page.getByLabel("Precio de contado").fill("2500");
+  await fillValeriaContado(page);
   await page.getByRole("button", { name: "Ver comparación" }).click();
   await page.getByRole("button", { name: "Guardar evaluación" }).click();
-  await expect(page.getByText(/guardar|google|no está configurado|sesión/i)).toBeVisible();
+  await expect(page.getByRole("status")).toContainText(
+    /configurado|Google|sesión/i,
+  );
   await expect(page.getByText("Evaluación guardada")).toHaveCount(0);
 });

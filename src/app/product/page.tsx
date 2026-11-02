@@ -2,6 +2,8 @@ import { ProductWorkspace } from "@/components/ProductWorkspace";
 import { type SavedRow } from "@/components/SavedEvaluations";
 import { loadEvaluations } from "@/app/actions/evaluations";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Mi Pausa",
 };

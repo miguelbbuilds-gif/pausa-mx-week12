@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useMemo, useState, useSyncExternalStore, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { ComparisonPanel } from "@/components/ComparisonPanel";
 import { AmountField } from "@/components/AmountField";
@@ -40,6 +40,11 @@ export function MiPausaForm({
   const [saveState, setSaveState] = useState<SaveState>({ status: "idle" });
   const [pending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(Boolean(initialValues));
+  const hydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   function update<K extends keyof typeof emptyForm>(key: K, value: string) {
     setForm((current) => ({ ...current, [key]: value }));
@@ -104,7 +109,11 @@ export function MiPausaForm({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <form onSubmit={onEvaluate} className="space-y-6 rounded-2xl border border-line bg-card p-5">
+      <form
+        onSubmit={onEvaluate}
+        data-hydrated={hydrated ? "true" : "false"}
+        className="space-y-6 rounded-2xl border border-line bg-card p-5"
+      >
         <div>
           <p className="text-sm font-medium uppercase tracking-wide text-teal">
             Paso 1
