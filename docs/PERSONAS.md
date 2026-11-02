@@ -26,7 +26,7 @@ Being told “no compres.” Being asked to connect her bank. Tiny inputs on a c
 She uses a mid-range Android and mobile data. She will not paste a CLABE. She needs MXN with clear thousands separators and language that does not imply the app knows her bank.
 
 **Realistic task scenario:**  
-On a Sunday evening she opens PAUSA MX, enters available money $8,400, essentials $5,200, committed payments $450, phone price $6,999, payment method contado. She reads remaining money after the purchase and the comparison with waiting. She signs in with Google and saves the evaluation to reopen on Monday in the store.
+On a Sunday evening she opens PAUSA MX, enters available money $8,400, essentials $5,200, committed payments $450, phone price $6,999, payment method contado. She reads remaining money after the purchase and the comparison with waiting. She creates an email/password account and saves the evaluation to reopen on Monday in the store.
 
 ---
 
@@ -50,7 +50,7 @@ The product inventing an interest rate, scoring him, or treating last month’s 
 He needs an explicit warning that future installments cannot be judged as affordable unless future money is entered — because his income is variable. He needs to see total amount actually typed versus cash price.
 
 **Realistic task scenario:**  
-He enters available money $12,000, essentials $7,800, committed payments $1,200, computer price $14,999, installments: down payment $3,000, 12 payments of $1,250. He reads immediate remaining money, future payments created ($15,000), the difference versus cash price, the warning that future affordability is not established from this month’s cash alone, and the comparison with waiting. He saves after Google sign-in.
+He enters available money $12,000, essentials $7,800, committed payments $1,200, computer price $14,999, installments: down payment $3,000, 12 payments of $1,250. He reads immediate remaining money, future payments created ($15,000), the difference versus cash price, the warning that future affordability is not established from this month’s cash alone, and the comparison with waiting. He saves after email/password sign-in.
 
 ---
 
@@ -62,7 +62,7 @@ v0.1 is a hypothesis pack. Before treating either persona as evidence:
 2. Whether they will type amounts without a bank connection.
 3. Whether “Comprar ahora / Esperar” is read as information or as a hidden recommendation.
 4. Whether installment users notice the cash-price vs total-entered difference.
-5. Whether Google sign-in is acceptable for saving financial figures.
+5. Whether email/password sign-in is acceptable for saving financial figures (Google Sign-In is not implemented).
 6. Whether the future-affordability warning is understood by people with variable income.
 7. What, if anything, they would pay for — currently unknown.
 

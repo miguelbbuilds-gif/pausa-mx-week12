@@ -41,7 +41,7 @@ export default function HomePage() {
         <Step
           n="3"
           title="Guarda si quieres"
-          body="Con Google, la evaluación queda en tu cuenta. Sin sesión, es solo una vista previa."
+          body="Con correo y contraseña, la evaluación queda en tu cuenta. Sin sesión, es solo una vista previa."
         />
       </section>
     </div>

@@ -44,9 +44,9 @@ Show Comprar ahora vs Esperar, the explanation, and that remaining can be negati
 
 ## 6. Saving and reopening (35s)
 
-If Google Auth is live: Entrar con Google → Guardar → Reabrir.
+If Auth is live: Crear cuenta (correo y contraseña) → Guardar → Reabrir. **Not Google Sign-In.**
 
-If it is not: show the on-screen message that save needs Google / Supabase, and say that is honest, not a localStorage fake.
+If it is not: show the on-screen message that save needs a session / Supabase, and say that is honest, not a localStorage fake.
 
 ## 7. Evidence of testing (20s)
 

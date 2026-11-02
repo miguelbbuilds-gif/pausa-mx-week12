@@ -21,7 +21,8 @@ export default async function ProductPage() {
       </p>
       <p className="mt-3 rounded-xl bg-white px-4 py-3 text-sm text-muted">
         Vista previa local: al pulsar «Ver comparación» los montos no se envían.
-        «Guardar evaluación» sí los guarda en tu cuenta, y requiere Google.
+        «Guardar evaluación» sí los guarda en tu cuenta, con correo y
+        contraseña.
       </p>
       <div className="mt-8">
         <ProductWorkspace

@@ -7,6 +7,7 @@ Desktop.ini
 .env
 .env.local
 .env.*.local
+.supabase-access-token
 
 # Dependencies and build
 node_modules

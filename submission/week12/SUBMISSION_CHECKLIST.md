@@ -14,8 +14,8 @@ Mark only what is actually true at hand-in.
 - [x] Single core feature: Mi Pausa
 - [x] Deterministic TypeScript engine, tested
 - [x] Routes `/` `/product` `/about` `/privacy`
-- [ ] Supabase live with Google OAuth (needs founder keys)
-- [ ] RLS verified with two real users
+- [x] Supabase live with email/password Auth (explicitly **not** Google Sign-In)
+- [x] RLS verified with two real email/password users (Playwright, see TEST_LOG)
 - [x] No service-role key in the client
 
 ## Git and host

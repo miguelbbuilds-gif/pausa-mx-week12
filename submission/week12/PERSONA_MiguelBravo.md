@@ -23,7 +23,7 @@ Use these **fictional** figures (label them as demo data if you mention them in 
 
 Do **not** connect a bank. Do **not** ask the product what you should do.
 
-Complete: open the site → go to Mi Pausa → enter the figures → Ver comparación → read Comprar ahora vs Esperar → try Guardar (sign in with Google if the tester has an account).
+Complete: open the site → go to Mi Pausa → enter the figures → Ver comparación → read Comprar ahora vs Esperar → try Guardar (create an email/password account if configured). This is **not** Google Sign-In.
 
 ---
 

@@ -1,46 +1,10 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import type { User } from "@supabase/supabase-js";
-import { createClient } from "@/lib/supabase/client";
+import Link from "next/link";
+import { signOutAction } from "@/app/actions/auth";
 import { hasSupabasePublicConfig } from "@/lib/supabase/env";
+import { createServerSupabase } from "@/lib/supabase/server";
 
-export function AuthButton() {
+export async function AuthButton() {
   const configured = hasSupabasePublicConfig();
-  const [user, setUser] = useState<User | null>(null);
-  const [ready, setReady] = useState(!configured);
-
-  useEffect(() => {
-    if (!configured) {
-      return;
-    }
-    const supabase = createClient();
-    if (!supabase) {
-      return;
-    }
-
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user);
-      setReady(true);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
-  }, [configured]);
-
-  if (!ready) {
-    return (
-      <span className="text-xs text-muted" aria-live="polite">
-        Sesión…
-      </span>
-    );
-  }
-
   if (!configured) {
     return (
       <span
@@ -52,41 +16,35 @@ export function AuthButton() {
     );
   }
 
-  async function signIn() {
-    const supabase = createClient();
-    if (!supabase) return;
-    const origin = window.location.origin;
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: { redirectTo: `${origin}/auth/callback` },
-    });
-  }
-
-  async function signOut() {
-    const supabase = createClient();
-    if (!supabase) return;
-    await supabase.auth.signOut();
-  }
+  const supabase = await createServerSupabase();
+  const {
+    data: { user },
+  } = (await supabase?.auth.getUser()) ?? { data: { user: null } };
 
   if (user) {
     return (
-      <button
-        type="button"
-        onClick={signOut}
-        className="rounded-full border border-line px-3 py-1.5 text-xs text-navy hover:border-teal"
-      >
-        Cerrar sesión
-      </button>
+      <form action={signOutAction} className="flex items-center gap-2">
+        {user.email ? (
+          <span className="hidden max-w-[10rem] truncate text-xs text-muted sm:inline">
+            {user.email}
+          </span>
+        ) : null}
+        <button
+          type="submit"
+          className="rounded-full border border-line px-3 py-1.5 text-xs text-navy hover:border-teal"
+        >
+          Cerrar sesión
+        </button>
+      </form>
     );
   }
 
   return (
-    <button
-      type="button"
-      onClick={signIn}
+    <Link
+      href="/auth"
       className="rounded-full bg-navy px-3 py-1.5 text-xs text-white hover:bg-teal-dark"
     >
-      Entrar con Google
-    </button>
+      Entrar
+    </Link>
   );
 }

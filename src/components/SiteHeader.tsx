@@ -8,7 +8,7 @@ const links = [
   { href: "/privacy", label: "Privacidad" },
 ];
 
-export function SiteHeader() {
+export async function SiteHeader() {
   return (
     <header className="border-b border-line bg-card/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">

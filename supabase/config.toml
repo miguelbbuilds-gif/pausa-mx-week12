@@ -1,0 +1,18 @@
+project_id = "pausa-mx-week12"
+
+[auth]
+site_url = "https://pausa-mx-week12.vercel.app"
+enable_signup = true
+additional_redirect_urls = [
+  "http://localhost:3000",
+  "http://localhost:3000/auth",
+  "http://localhost:3000/auth/callback",
+  "https://pausa-mx-week12.vercel.app",
+  "https://pausa-mx-week12.vercel.app/auth",
+  "https://pausa-mx-week12.vercel.app/auth/callback",
+]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+double_confirm_changes = false

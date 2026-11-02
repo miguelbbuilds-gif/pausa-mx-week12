@@ -73,7 +73,7 @@ This rebuild explicitly rejects:
 
 Every feature in this rebuild must map to these nouns:
 
-1. **User** — a person identified by Supabase Auth (Google). Unauthenticated visitors may preview a calculation locally; they are not a stored User until they sign in.
+1. **User** — a person identified by Supabase Auth (email and password). Unauthenticated visitors may preview a calculation locally; they are not a stored User until they sign in. **This is not Google Sign-In** and does not literally satisfy a Google OAuth course requirement.
 2. **Evaluation** — one saved or in-progress application of Mi Pausa: inputs, engine outputs, explanation, and timestamps, owned by a User.
 3. **Purchase** — the contemplated item described only by a cash price and an optional payment plan the User typed. Not a catalog product.
 4. **Available Money** — the amount the User says they can draw on for the period they are considering (typically cash on hand / money available this month), in MXN.

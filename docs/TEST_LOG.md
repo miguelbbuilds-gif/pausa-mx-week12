@@ -6,7 +6,7 @@ Evidence from actual runs. Times are local (UTC−6) on 2026-11-01 unless noted.
 
 Command: `npx vitest run`
 
-Latest run this session: **11 passed** (10 engine + 1 placeholder-env guard).
+Latest run this session: **15 passed** (10 engine + 1 placeholder-env guard + 4 auth schema).
 
 ### Real bug 1 — cent rounding
 
@@ -34,6 +34,15 @@ Fix: `postcss.config.mjs` + `@tailwindcss/postcss`. Retest: body background `rgb
 - `npx eslint .` — pass
 - `npm run build` — pass; `/product` is dynamic (`ƒ`)
 
-## Authenticated save / Google / RLS
+## Authenticated save / email-password / RLS
 
-**Not verified.** No `.env.local` and production still renders “Falta .env.local”. Preview-only path was tested. Do not treat save/reopen as done.
+Auth is **email and password**, not Google Sign-In. That course requirement is **not** met literally.
+
+Playwright against live project `xrpbbmdossmlbstjrlta` (2026-11-01, local `next dev` + `.env.local`):
+
+- `email auth save › create account, save, reload, reopen` — **passed**. New `@pausamx.test` account, Guardar showed “Evaluación guardada”, reload listed the row, Reabrir filled precio `2500`.
+- `email auth save › second account cannot see the first account rows` — **passed**. Account A saved precio 3333; account B did not see `$3,333.00` and saw “Aún no hay evaluaciones guardadas.” After B saved 4444, A still did not see `$4,444.00`.
+- Validation: mismatched passwords show “Las contraseñas no coinciden.”
+- Full Playwright file run: **8 passed** (5 smoke + 3 auth).
+
+Google login was **not** tested (provider not used).

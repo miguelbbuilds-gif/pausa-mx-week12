@@ -1,7 +1,7 @@
 -- Manual RLS isolation check (two users).
 -- Do not paste service-role keys into the Next.js app.
 --
--- 1. Create two Google-authenticated users in the Auth dashboard (or sign in twice).
+-- 1. Create two email/password users (or sign in twice). Not Google Sign-In.
 -- 2. As user A, insert a row from the product UI.
 -- 3. In SQL editor (runs as the database owner, bypassing RLS), note user A's row id:
 --      select id, user_id from public.evaluations;

@@ -19,7 +19,7 @@
 | # | Case | Expected |
 | --- | --- | --- |
 | 10 | Unauthenticated save | After a valid preview, Guardar does not show “Evaluación guardada”. |
-| 11 | Authenticated save and reopen | Requires live Google users. Manual / founder step until credentials exist. |
+| 11 | Authenticated save and reopen | Email/password account against live Supabase. Playwright `tests/auth-save.spec.ts`. |
 | 12 | RLS isolation of two users | SQL procedure in `supabase/rls_isolation.sql`. Record an actual run in TEST_LOG when two accounts exist. |
 | 13 | Tailwind applied | Body background `#f7f4ee`; hero font-size > 28px. |
 | 14 | Phone viewport 390×844 | Home heading and Mi Pausa fields remain visible. |

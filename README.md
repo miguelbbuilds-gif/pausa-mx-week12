@@ -10,7 +10,7 @@ Mexican Spanish UI. Deterministic TypeScript arithmetic. No bank login, no credi
 
 - Charter, personas, and packet were committed **before** this repository’s application rebuild. See `docs/SOURCE_REVIEW.md`.
 - METHOD, VERDICT, MANIFESTO, and the Week 12 team Blueprint were **not** in the workspace. Methodology is provisional.
-- Saving private evaluations requires Supabase + Google OAuth. Until those keys exist, preview still works in the browser and does not persist amounts.
+- Saving private evaluations requires Supabase Auth with **email and password** (not Google Sign-In; that course requirement is **not** met literally). Until public keys exist, preview still works in the browser and does not persist amounts.
 - Public Vercel URL (no purchased domain yet): https://pausa-mx-week12.vercel.app
 - GitHub: https://github.com/miguelbbuilds-gif/pausa-mx-week12
 
@@ -46,6 +46,7 @@ Follow `supabase/SETUP.md` and run `supabase/migrations/20261101_evaluations.sql
 | Path | Purpose |
 | --- | --- |
 | `/` | Home |
+| `/auth` | Crear cuenta / entrar (correo y contraseña) |
 | `/product` | Mi Pausa |
 | `/about` | Need, users, business hypothesis |
 | `/privacy` | Data use |

@@ -291,15 +291,18 @@ function SaveFeedback({
     if (state.status === "unauthenticated") {
       return (
         <p className="rounded-xl bg-warning-bg p-3 text-sm text-warning" role="status">
-          Para guardar necesitas entrar con Google. La comparación sigue en
-          pantalla y no se almacenó.
+          Para guardar necesitas{" "}
+          <a href="/auth" className="underline">
+            entrar con correo y contraseña
+          </a>
+          . La comparación sigue en pantalla y no se almacenó.
         </p>
       );
     }
     return (
       <p className="text-sm text-muted">
-        Entra con Google cuando quieras guardar. Sin cuenta, esto es solo una
-        vista previa.
+        Entra con correo y contraseña cuando quieras guardar. Sin cuenta, esto
+        es solo una vista previa.
       </p>
     );
   }

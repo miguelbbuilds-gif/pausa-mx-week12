@@ -56,7 +56,7 @@ test("unauthenticated save does not claim success", async ({ page }) => {
   await page.getByRole("button", { name: "Ver comparación" }).click();
   await page.getByRole("button", { name: "Guardar evaluación" }).click();
   await expect(page.getByRole("status")).toContainText(
-    /claves|configurado|Google|sesión/i,
+    /claves|configurado|correo|contraseña|sesión|cuenta/i,
   );
   await expect(page.getByText("Evaluación guardada")).toHaveCount(0);
 });

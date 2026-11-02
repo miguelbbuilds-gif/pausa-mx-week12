@@ -31,7 +31,7 @@ The module is successful for Week 12 if **all** of the following are true:
 1. Charter, personas, and packet exist in git **before** this repository’s application rebuild commits.
 2. One working feature, Mi Pausa, computes a consistent comparison from typed inputs.
 3. Unit tests cover the required mechanical cases.
-4. Private save requires Google authentication via Supabase; RLS restricts rows to the owner.
+4. Private save requires Supabase Auth (email and password, **not** Google Sign-In) plus RLS so each user only reads their rows. **This does not literally satisfy a Google OAuth requirement.**
 5. Public Vercel deployment exists. A real purchased domain is connected **or** the founder has exact purchase instructions (this agent cannot buy a domain).
 6. Documentation states what was tested and what was not invented.
 
@@ -63,7 +63,7 @@ flowchart TD
   E --> K[Comparison: Comprar ahora vs Esperar]
   K --> L{User wants to save?}
   L -->|No| M[Keep preview local. Do not persist amounts]
-  L -->|Yes| N{Authenticated with Google?}
+  L -->|Yes| N{Authenticated with email/password?}
   N -->|No| O[Prompt sign-in. Do not store yet]
   N -->|Yes| P[Insert evaluation with user_id. RLS]
   P --> Q[Reopen from saved list]
@@ -87,7 +87,7 @@ sequenceDiagram
   Engine-->>UI: Comparison + explanation + warnings
   Note over UI,Engine: Preview stays in the browser. No POST of amounts.
   Person->>UI: Guardar evaluación
-  UI->>Auth: Google session?
+  UI->>Auth: Email/password session?
   alt Not signed in
     Auth-->>UI: Challenge
     UI-->>Person: Sign in to save. Preview remains local.
@@ -154,7 +154,7 @@ Out of Week 12:
 | Language | TypeScript strict | Testable engine |
 | Validation | Zod | Client and server |
 | Engine | Pure functions in `src/engine` | Independent of UI |
-| Auth | Supabase Auth, Google OAuth | Required for private save |
+| Auth | Supabase Auth, email + password (not Google Sign-In) | Private save; does **not** literally meet a Google OAuth requirement |
 | Data | Supabase PostgreSQL + RLS | Owner-only evaluations |
 | Tests | Vitest + Playwright | Engine + smoke |
 | Host | Vercel | Required |
@@ -190,7 +190,7 @@ A synthetic persona test of Valeria or Daniel must run in a **fresh LLM chat** w
 
 ## 13. Security plan
 
-- Google OAuth required to persist evaluations  
+- Email/password session required to persist evaluations (explicitly **not** Google Sign-In)  
 - RLS: `user_id = auth.uid()` for select/insert/update/delete  
 - Anon key in browser; **service-role key never in client**  
 - Zod on client and server; numeric range 0–10,000,000.00 MXN; installment count 2–60  

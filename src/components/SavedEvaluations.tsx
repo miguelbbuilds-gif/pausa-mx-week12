@@ -37,7 +37,8 @@ export function SavedEvaluations({
       <section className="mt-10 rounded-2xl border border-line bg-card p-5">
         <h2 className="font-display text-2xl text-navy">Evaluaciones guardadas</h2>
         <p className="mt-2 text-muted">
-          Entra con Google para ver las que hayas guardado. Nadie más puede leerlas.
+          Entra con correo y contraseña para ver las que hayas guardado. Nadie
+          más puede leerlas.
         </p>
       </section>
     );

@@ -9,12 +9,12 @@ export default function PrivacyPage() {
       <p>
         PAUSA MX trata cantidades de dinero como información personal. Por eso
         el cálculo en vista previa ocurre en tu dispositivo. Esos montos no se
-        mandan a un servidor hasta que guardas una evaluación con la sesión de
-        Google iniciada.
+        mandan a un servidor hasta que guardas una evaluación con sesión de
+        correo y contraseña iniciada.
       </p>
       <h2 className="font-display text-2xl text-navy">Qué se guarda</h2>
       <ul className="list-disc space-y-2 pl-6">
-        <li>Identificador de tu cuenta de Google (vía Supabase Auth).</li>
+        <li>Correo de tu cuenta (vía Supabase Auth, no Google Sign-In).</li>
         <li>
           Las cifras que escribiste y el resultado calculado, asociados a tu
           usuario.

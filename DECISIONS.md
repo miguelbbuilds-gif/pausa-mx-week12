@@ -16,7 +16,7 @@ PACKET v0.1 mentioned banker’s rounding. JavaScript `Math.round(mxn * 100)` is
 
 ## 2026-11-01 — Preview vs save
 
-Preview runs `evaluatePurchase` in the browser. Save is a server action that validates with Zod, recomputes, and inserts only if a Google user exists. Browser `localStorage` is not used as a fake secure store.
+Preview runs `evaluatePurchase` in the browser. Save is a server action that validates with Zod, recomputes, and inserts only if an authenticated user exists. Browser `localStorage` is not used as a fake secure store.
 
 ## 2026-11-01 — Next.js 16 proxy
 
@@ -29,3 +29,9 @@ Session refresh lives in `src/proxy.ts` (Next.js 16 replacement for `middleware.
 ## 2026-11-01 — Domain
 
 RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 Object not found at Identity Digital on 2026-11-01, which usually means the names are not registered. Porkbun list price for `.site` and `.online` (https://porkbun.com/products/domains): first year USD 1.96, renewal USD 28.84. That is TLD list price, not a completed checkout. No domain was purchased. See `docs/DOMAIN_SETUP.md`.
+
+## 2026-11-01 — Email/password instead of Google Sign-In
+
+Google Cloud Console required an interactive login this agent could not complete. Founder instruction: finish without Google OAuth.
+
+Decision: Supabase Auth email + password, same PostgreSQL table, same RLS (`auth.uid() = user_id`). Email confirmations are off (no SMTP). **This does not satisfy a Google Sign-In requirement literally.** Preview remains local until a real session exists.
