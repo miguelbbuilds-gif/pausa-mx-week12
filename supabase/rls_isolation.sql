@@ -1,0 +1,12 @@
+-- Manual RLS isolation check (two users).
+-- Do not paste service-role keys into the Next.js app.
+--
+-- 1. Create two Google-authenticated users in the Auth dashboard (or sign in twice).
+-- 2. As user A, insert a row from the product UI.
+-- 3. In SQL editor (runs as the database owner, bypassing RLS), note user A's row id:
+--      select id, user_id from public.evaluations;
+-- 4. To verify RLS as a specific user, use the Supabase client with that user's JWT
+--    (the app does this). Owner-only policies mean user B's select returns zero of A's rows.
+--
+-- Expected: each user only reads, inserts, updates and deletes rows where user_id = auth.uid().
+-- This file is a procedure, not a recorded two-user run. Record an actual run in docs/TEST_LOG.md.
