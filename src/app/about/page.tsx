@@ -46,9 +46,9 @@ export default function AboutPage() {
           <strong className="font-medium text-navy">
             No hay evidencia de un impacto 10×.
           </strong>{" "}
-          Falta: entrevistas reales, un norte estrella medido y cualquier dato
-          de retención. Esta página no afirma que el producto ya cambió
-          comportamiento.
+          Falta: cinco sesiones reales, un problema #1 observado, y cualquier dato
+          de retención. Week 13 prepara el comentario y el registro del fundador.
+          Esta página no afirma que el producto ya cambió comportamiento.
         </p>
       </section>
     </article>

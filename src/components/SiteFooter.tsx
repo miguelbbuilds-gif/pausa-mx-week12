@@ -7,7 +7,7 @@ export function SiteFooter() {
           resultados financieros. Tú decides.
         </p>
         <p className="mt-2">
-          Prototipo de curso AI 2041 · Semana 12 · Miguel Bravo. Los ejemplos
+          Prototipo de curso AI 2041 · Semanas 12 y 13 · Miguel Bravo. Los ejemplos
           numéricos de demostración son ficticios y están marcados como tales.
         </p>
       </div>

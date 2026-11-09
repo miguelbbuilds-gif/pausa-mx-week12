@@ -24,7 +24,8 @@ export default async function AuthPage() {
       <h1 className="font-display text-4xl text-navy">Tu cuenta</h1>
       <p className="mt-3 text-lg text-muted">
         Crea una cuenta con correo y contraseña para guardar evaluaciones.
-        Cada cuenta solo ve lo suyo. Esto no es Google Sign-In.
+        Cada cuenta solo ve lo suyo. Sign in with Google sigue pendiente de
+        configuración y esta pantalla no lo reemplaza.
       </p>
       <div className="mt-8">
         <AuthForm />

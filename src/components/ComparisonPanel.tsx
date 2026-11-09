@@ -24,6 +24,10 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
     <section className="space-y-4" aria-live="polite">
       <div className="rounded-2xl border border-line bg-card p-5">
         <h2 className="font-display text-xl text-navy">Antes de esta compra</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Dinero disponible después de obligaciones es lo que queda hoy al restar
+          los esenciales y los pagos ya prometidos. No es un ingreso futuro.
+        </p>
         <dl className="mt-4 space-y-3 text-sm">
           <Row
             term="Dinero disponible después de esenciales y compromisos"
@@ -46,6 +50,9 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
       <div className="grid gap-4 md:grid-cols-2">
         <article className="rounded-2xl border border-teal/40 bg-card p-5">
           <h2 className="font-display text-xl text-navy">Comprar ahora</h2>
+          <p className="mt-2 text-sm text-muted">
+            Aplica el costo inmediato y los pagos futuros que escribiste para esta compra.
+          </p>
           <dl className="mt-4 space-y-3 text-sm">
             <Row
               term="Costo inmediato"
@@ -67,6 +74,9 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
         </article>
         <article className="rounded-2xl border border-line bg-card p-5">
           <h2 className="font-display text-xl text-navy">Esperar</h2>
+          <p className="mt-2 text-sm text-muted">
+            Esta compra no se hace. Hoy queda el dinero después de obligaciones, sin pagos nuevos.
+          </p>
           <dl className="mt-4 space-y-3 text-sm">
             <Row term="Costo inmediato de esta compra" detail={formatMxn(0)} />
             <Row

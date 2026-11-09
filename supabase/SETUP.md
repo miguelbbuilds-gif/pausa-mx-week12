@@ -62,3 +62,36 @@ Production / Preview / Development:
 3. Sign in as a second email: you must not see the first user’s rows.
 
 Until those checks pass, do not claim save works. This repository does not substitute `localStorage`.
+
+## 8. Week 13 migrations
+
+Run these in the Supabase SQL editor, in order, after the evaluations migration:
+
+1. `supabase/migrations/20261108_product_events.sql`
+2. `supabase/migrations/20261108_feedback_research.sql`
+
+The first file inserts into `app_admins` only if `auth.users` already has `miguelb.builds@gmail.com`. If your account uses another email, run:
+
+```sql
+insert into public.app_admins (user_id)
+select id from auth.users where email = 'tu-correo'
+on conflict (user_id) do nothing;
+```
+
+Until that row exists, `/investigacion` stays closed. That is expected.
+
+Do not put the service-role key in Vercel to bypass this.
+
+## 9. Sign in with Google — PENDING
+
+Email/password is still the only working sign-in. It does **not** satisfy “Sign in with Google”.
+
+To add it without removing email/password:
+
+1. Google Cloud Console → APIs & Services → Credentials → OAuth client ID → Web application.
+2. Authorized redirect URI: `https://xrpbbmdossmlbstjrlta.supabase.co/auth/v1/callback`
+3. Supabase → Authentication → Providers → Google → enable, paste Client ID and Client Secret.
+4. Supabase → Authentication → URL configuration → keep `https://pausa-mx-week12.vercel.app` and `http://localhost:3000`.
+5. Tell the agent the provider is enabled. Do not paste the client secret into chat or into git.
+
+Until step 5, the app must not show a Google button that cannot complete.

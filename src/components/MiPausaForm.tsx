@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { ComparisonFeedback } from "@/components/ComparisonFeedback";
 import { ComparisonPanel } from "@/components/ComparisonPanel";
 import { AmountField } from "@/components/AmountField";
 import {
@@ -131,6 +132,20 @@ export function MiPausaForm({
         data-hydrated={hydrated ? "true" : "false"}
         className="space-y-6 rounded-2xl border border-line bg-card p-5"
       >
+        {submitted && Object.keys(fieldErrors).length > 0 ? (
+          <div role="alert" className="rounded-xl border border-red-200 bg-white p-3 text-sm text-red-800">
+            <p>Revisa estos campos. No se inventó ninguna cantidad.</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              {Object.entries(fieldErrors).map(([key, message]) => (
+                <li key={key}>
+                  <a href={`#${key}`} className="underline">
+                    {message}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <div>
           <p className="text-sm font-medium uppercase tracking-wide text-teal">
             Paso 1
@@ -161,6 +176,13 @@ export function MiPausaForm({
           onChange={(value) => update("committedPayments", value)}
           error={submitted ? fieldErrors.committedPayments : undefined}
         />
+        <div className="rounded-xl bg-background p-4 text-sm">
+          <p className="font-medium text-navy">Dinero disponible después de obligaciones</p>
+          <p className="mt-1 leading-relaxed text-muted">
+            Es el dinero disponible menos los gastos esenciales próximos menos los
+            pagos ya comprometidos. No es un sueldo que todavía no llega ni un saldo leído del banco.
+          </p>
+        </div>
 
         <div>
           <p className="text-sm font-medium uppercase tracking-wide text-teal">
@@ -171,6 +193,7 @@ export function MiPausaForm({
         <AmountField
           id="purchasePrice"
           label="Precio de contado"
+          hint="El precio de contado del artículo, aunque después elijas meses."
           value={form.purchasePrice}
           onChange={(value) => update("purchasePrice", value)}
           error={submitted ? fieldErrors.purchasePrice : undefined}
@@ -248,6 +271,7 @@ export function MiPausaForm({
             type="button"
             onClick={onSave}
             disabled={pending}
+            aria-busy={pending}
             className="h-12 rounded-full border border-navy px-6 text-base font-medium text-navy hover:bg-navy hover:text-white disabled:opacity-60"
           >
             {pending ? "Guardando…" : "Guardar evaluación"}
@@ -270,7 +294,10 @@ export function MiPausaForm({
           Paso 3
         </p>
         {submitted && result ? (
-          <ComparisonPanel result={result} />
+          <>
+            <ComparisonPanel result={result} />
+            {result.ok ? <ComparisonFeedback /> : null}
+          </>
         ) : (
           <div className="rounded-2xl border border-dashed border-line bg-card p-5 text-muted">
             Completa los pasos 1 y 2 y pulsa «Ver comparación». Mientras no

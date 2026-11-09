@@ -14,12 +14,29 @@ export default function PrivacyPage() {
       </p>
       <h2 className="font-display text-2xl text-navy">Qué se guarda</h2>
       <ul className="list-disc space-y-2 pl-6">
-        <li>Correo de tu cuenta (vía Supabase Auth, no Google Sign-In).</li>
+        <li>
+          Correo de tu cuenta (vía Supabase Auth con correo y contraseña). Sign
+          in with Google no está activo.
+        </li>
         <li>
           Las cifras que escribiste y el resultado calculado, asociados a tu
           usuario.
         </li>
       </ul>
+      <h2 className="font-display text-2xl text-navy">Qué se observa, sin tus montos</h2>
+      <p>
+        Al usar Mi Pausa, la aplicación puede registrar el nombre de un evento:
+        que empezaste, que un campo no pasó la validación, que viste la
+        comparación, que intentaste guardar, que el guardado sí ocurrió, o que
+        enviaste un comentario. Ese registro no incluye cantidades, nombre,
+        correo, contraseña ni token. El comentario opcional sí guarda el texto
+        que tú escribes, con un aviso de que puede usarse para mejorar el
+        producto. No lo uses para dejar datos de contacto.
+      </p>
+      <p>
+        Las notas de sesiones con personas se guardan solo para el fundador,
+        con seudónimo, y no son una página pública.
+      </p>
       <h2 className="font-display text-2xl text-navy">Qué no se hace</h2>
       <ul className="list-disc space-y-2 pl-6">
         <li>No hay conexión a bancos.</li>

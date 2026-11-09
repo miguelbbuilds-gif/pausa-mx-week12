@@ -17,7 +17,8 @@ export default async function ProductPage() {
       <p className="mt-3 max-w-2xl text-lg text-muted">
         Convierte una compra propuesta, tus obligaciones y tu dinero disponible
         en una comparación clara: comprar ahora o esperar. No es un consejo de
-        compra ni un puntaje.
+        compra ni un puntaje. Dinero disponible después de obligaciones es lo
+        que queda hoy después de restar esenciales y pagos ya prometidos.
       </p>
       <p className="mt-3 rounded-xl bg-white px-4 py-3 text-sm text-muted">
         Vista previa local: al pulsar «Ver comparación» los montos no se envían.
