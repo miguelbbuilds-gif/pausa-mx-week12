@@ -44,6 +44,10 @@ No Google client credentials were available. Email/password stays. It is not rec
 
 A `<summary>` menu was exposed as a generic in Chromium, so the phone test could not open navigation. Replaced with a `<button>`. This was a mechanical defect, not a human-test finding.
 
+## 2026-11-09 — Next action
+
+Apply `supabase/migrations/20261108_product_events.sql` and `supabase/migrations/20261108_feedback_research.sql` in the Supabase SQL editor, confirm `app_admins` contains the founder, then run the five observed sessions in `docs/WEEK13_HUMAN_TEST_PROTOCOL.md`. Do not rank a human problem before those sessions exist.
+
 ## 2026-11-08 — Week 13 migrations not applied remotely
 
 The anon probe saw `evaluations` and zero rows. `product_events` and the research tables returned `PGRST205`. SQL is in the repo. Applying it needs the Supabase SQL editor. No service-role key was added to the app.
