@@ -205,3 +205,5 @@ create trigger research_priorities_require_sessions
   before insert or update on public.research_priorities
   for each row
   execute function public.guard_research_priority();
+
+revoke all on function public.guard_research_priority() from public, anon, authenticated;

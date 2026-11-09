@@ -31,6 +31,10 @@ test.describe("email auth save", () => {
   test("create account, save, reload, reopen", async ({ page }) => {
     const email = uniqueEmail("a");
     await createAccount(page, email);
+    await page.goto("/investigacion");
+    await expect(page.getByText("no está autorizada")).toBeVisible();
+    await expect(page.getByLabel("Cita textual exacta")).toHaveCount(0);
+    await page.goto("/product");
     await fillValeria(page, "2500");
     await page.getByRole("button", { name: "Ver comparación" }).click();
     await expect(page.getByRole("heading", { name: "Comprar ahora" })).toBeVisible();

@@ -1,7 +1,9 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { publicOrigin } from "@/lib/site-origin";
 import { authCredentialsSchema, signUpFormSchema } from "@/validation/auth";
 
 export type AuthFormState = {
@@ -109,6 +111,29 @@ export async function signInAction(
   }
 
   redirect("/product");
+}
+
+export async function signInWithGoogleAction() {
+  const supabase = await createServerSupabase();
+  if (!supabase) {
+    redirect("/auth?error=unconfigured");
+  }
+
+  const headerList = await headers();
+  const origin = publicOrigin((name) => headerList.get(name));
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${origin}/auth/callback`,
+      queryParams: { prompt: "select_account" },
+    },
+  });
+
+  if (error || !data.url) {
+    redirect("/auth?error=google");
+  }
+
+  redirect(data.url);
 }
 
 export async function signOutAction() {

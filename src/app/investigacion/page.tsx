@@ -40,9 +40,9 @@ export default async function InvestigacionPage() {
       ) : null}
       {access.status === "migration_missing" ? (
         <p className="mt-6 rounded-xl bg-warning-bg p-4 text-sm text-warning" role="status">
-          Falta aplicar <code>supabase/migrations/20261108_product_events.sql</code> y{" "}
-          <code>supabase/migrations/20261108_feedback_research.sql</code> en el SQL editor.
-          Si tu usuario no quedó en <code>app_admins</code>, inserta tu <code>user_id</code> ahí.
+          El servidor no pudo consultar el acceso de fundador. Las migraciones de Week 13
+          ya se aplicaron en el proyecto conectado; si esta cuenta no está en{" "}
+          <code>app_admins</code>, el panel permanece cerrado.
         </p>
       ) : null}
       {access.status === "founder" ? <ResearchDesk desk={access} /> : null}

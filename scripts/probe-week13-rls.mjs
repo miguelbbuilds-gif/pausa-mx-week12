@@ -20,16 +20,16 @@ if (!url || !anon || url.includes("YOUR_PROJECT")) {
 
 const client = createClient(url, anon);
 const tables = [
-  "evaluations",
-  "product_events",
-  "comparison_feedback",
-  "research_sessions",
-  "research_priorities",
-  "app_admins",
+  ["evaluations", "id"],
+  ["product_events", "id"],
+  ["comparison_feedback", "id"],
+  ["research_sessions", "id"],
+  ["research_priorities", "id"],
+  ["app_admins", "user_id"],
 ];
 
-for (const table of tables) {
-  const { data, error } = await client.from(table).select("id").limit(3);
+for (const [table, column] of tables) {
+  const { data, error } = await client.from(table).select(column).limit(3);
   if (error) {
     console.log(`${table} ERROR ${error.code} ${error.message}`);
   } else {

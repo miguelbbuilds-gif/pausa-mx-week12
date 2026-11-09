@@ -3,6 +3,7 @@
 import { useActionState, useState } from "react";
 import {
   signInAction,
+  signInWithGoogleAction,
   signUpAction,
   type AuthFormState,
 } from "@/app/actions/auth";
@@ -151,6 +152,20 @@ export function AuthForm() {
               ? "Crear cuenta"
               : "Entrar"}
         </button>
+      </form>
+
+      <form action={signInWithGoogleAction} className="mt-4 space-y-3">
+        <button
+          type="submit"
+          className="h-12 w-full rounded-full border border-line bg-white px-6 text-base font-medium text-navy hover:border-teal"
+        >
+          Continuar con Google
+        </button>
+        <p className="text-sm leading-relaxed text-muted">
+          Correo y contraseña siguen disponibles. Google usa el mismo inicio de
+          sesión de Supabase. Si el proveedor todavía no está activo, este botón
+          regresa aquí sin crear una sesión.
+        </p>
       </form>
     </div>
   );

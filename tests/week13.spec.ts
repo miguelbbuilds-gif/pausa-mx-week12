@@ -23,6 +23,13 @@ test("comparison explains obligations and asks for optional feedback", async ({ 
   await expect(page.getByText("Escribe qué confundió o elige si volverías.")).toBeVisible();
 });
 
+test("auth offers Google beside email and password", async ({ page }) => {
+  await page.goto("/auth");
+  await expect(page.getByRole("button", { name: "Continuar con Google" })).toBeVisible();
+  await expect(page.getByLabel("Correo")).toBeVisible();
+  await expect(page.getByLabel("Contraseña", { exact: true })).toBeVisible();
+});
+
 test("research desk is closed without a founder session", async ({ page }) => {
   await page.goto("/investigacion");
   await expect(page.getByRole("heading", { name: "Investigación" })).toBeVisible();

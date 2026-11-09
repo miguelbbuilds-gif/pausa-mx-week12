@@ -25,7 +25,7 @@ as $$
   );
 $$;
 
-revoke all on function public.is_founder() from public;
+revoke all on function public.is_founder() from public, anon;
 grant execute on function public.is_founder() to authenticated;
 
 insert into public.app_admins (user_id)

@@ -15,8 +15,9 @@ export default function PrivacyPage() {
       <h2 className="font-display text-2xl text-navy">Qué se guarda</h2>
       <ul className="list-disc space-y-2 pl-6">
         <li>
-          Correo de tu cuenta (vía Supabase Auth con correo y contraseña). Sign
-          in with Google no está activo.
+          Correo de tu cuenta, si entras con correo y contraseña, o el perfil que
+          Google entrega a Supabase si entras con Google. El proveedor de Google
+          queda activo solo cuando está encendido en Supabase.
         </li>
         <li>
           Las cifras que escribiste y el resultado calculado, asociados a tu
