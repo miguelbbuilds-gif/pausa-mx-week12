@@ -41,7 +41,15 @@ Esas cifras son de ejemplo. Después de obligaciones quedan 5000. Comprar ahora 
 5. Entrar: https://pausa-mx-week12.vercel.app/auth
 6. Investigación cerrada: https://pausa-mx-week12.vercel.app/investigacion
 
-Las capturas de producción, cuando existan, van en `docs/evidence/persona/`. El mockup `docs/week13-mockup.png` no cuenta como evidencia de producción.
+Capturas tomadas el 2026-11-08 por la noche contra producción, viewport 390×844, HTTP 200:
+
+- `docs/evidence/persona/01-inicio.png`
+- `docs/evidence/persona/02-mi-pausa.png`
+- `docs/evidence/persona/03-comparacion.png`
+- `docs/evidence/persona/04-entrar.png`
+- `docs/evidence/persona/05-investigacion.png`
+
+Son capturas de la app. No son respuestas de Valeria. El mockup `docs/week13-mockup.png` no cuenta como evidencia de producción.
 
 ## Preguntas, solo después de la tarea
 

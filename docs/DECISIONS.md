@@ -56,6 +56,8 @@ The course requires Sign in with Google, and the founder asked for the button so
 
 Create or sign in on https://pausa-mx-week12.vercel.app/auth with the founder email, then insert that user into `public.app_admins`. Enable the Google provider using `docs/WEEK13_GOOGLE_OAUTH.md`. Run the five observed sessions in `docs/WEEK13_HUMAN_TEST_PROTOCOL.md`. Do not rank a human problem before those sessions exist.
 
+Tomorrow’s first move: create the founder account at https://pausa-mx-week12.vercel.app/auth and insert that user into `public.app_admins`. Do not start the five sessions before that account can open `/investigacion`.
+
 ## 2026-11-08 — Week 13 migrations not applied remotely
 
 The anon probe saw `evaluations` and zero rows. `product_events` and the research tables returned `PGRST205`. SQL is in the repo. Applying it needs the Supabase SQL editor. No service-role key was added to the app.

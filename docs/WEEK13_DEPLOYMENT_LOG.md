@@ -12,4 +12,6 @@ Project: `miguel-d52d/pausa-mx-week12`
 
 CLI reported `deploymentProtection: vercel_authentication`. An unauthenticated request still received the app HTML and `200 OK`.
 
-The commit that adds this second row is newer than `fb2f15b`. The aliased production deployment is deploy 2, built from `fb2f15b`, until a later deploy says otherwise.
+| 3 | 2026-11-09 03:41 | `dpl_ChxSeFAPju93neaLgXJNxVGi2SyN` | https://pausa-mx-week12-lzoanwe08-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app | `0b71548` (local HEAD; CLI did not print a GitHub SHA) | READY. HTTP 200 on `/`, `/product`, `/auth`, `/investigacion`. Auth HTML contains «Continuar con Google». Inspector: https://vercel.com/miguel-d52d/pausa-mx-week12/ChxSeFAPju93neaLgXJNxVGi2SyN |
+
+Deploy 3 is the current production alias.
