@@ -30,6 +30,10 @@ Session refresh lives in `src/proxy.ts` (Next.js 16 replacement for `middleware.
 
 RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 Object not found at Identity Digital on 2026-11-01, which usually means the names are not registered. Porkbun list price for `.site` and `.online` (https://porkbun.com/products/domains): first year USD 1.96, renewal USD 28.84. That is TLD list price, not a completed checkout. No domain was purchased. See `docs/DOMAIN_SETUP.md`.
 
+## 2026-11-08 — Week 13
+
+Same entries as `docs/DECISIONS.md` for this date: events without amounts, Google OAuth still pending, mobile menu button, and Week 13 SQL not yet applied in Supabase. No human problem #1 was chosen.
+
 ## 2026-11-01 — Email/password instead of Google Sign-In
 
 Google Cloud Console required an interactive login this agent could not complete. Founder instruction: finish without Google OAuth.

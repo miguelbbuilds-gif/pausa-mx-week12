@@ -32,6 +32,22 @@ Session refresh lives in `src/proxy.ts` (Next.js 16 replacement for `middleware.
 
 RDAP for `pausamx.site` and `pausamx.online` returned HTTP 404 at Identity Digital. Porkbun’s public TLD list (https://porkbun.com/products/domains, read 2026-11-01) shows first-year **$1.96** and renewal **$28.84** for both `.site` and `.online` (non-premium). That is list price, not a checkout for `pausamx.site`. No domain was purchased.
 
+## 2026-11-08 — Week 13 measurement without amounts
+
+Events store a name and an allowlisted detail code. They do not store MXN amounts, names, emails, passwords, or tokens. Preview math stays in the browser. Feedback text is optional, capped at 400 characters, and rejected if it looks like an email address. Research notes are founder-only and cannot be prioritized as real findings until five verified non-demo sessions exist.
+
+## 2026-11-08 — Google OAuth still pending
+
+No Google client credentials were available. Email/password stays. It is not recorded as Sign in with Google. Steps: `docs/WEEK13_GOOGLE_OAUTH.md`.
+
+## 2026-11-08 — Mobile menu
+
+A `<summary>` menu was exposed as a generic in Chromium, so the phone test could not open navigation. Replaced with a `<button>`. This was a mechanical defect, not a human-test finding.
+
+## 2026-11-08 — Week 13 migrations not applied remotely
+
+The anon probe saw `evaluations` and zero rows. `product_events` and the research tables returned `PGRST205`. SQL is in the repo. Applying it needs the Supabase SQL editor. No service-role key was added to the app.
+
 ## 2026-11-01 — Email/password instead of Google Sign-In
 
 Google Cloud Console required an interactive login this agent could not complete (`gcloud` missing; GCP sign-in wall). Founder instruction: finish Week 12 without Google OAuth.
