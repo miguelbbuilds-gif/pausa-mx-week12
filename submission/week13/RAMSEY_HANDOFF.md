@@ -22,14 +22,17 @@ This handoff does not claim that Week 13 is fully satisfied.
 | `dd6de33` | test: cover feedback, security and core flows |
 | `cc50293` | fix: restore mobile menu as a real button |
 | `3a5a553` | docs: record week13 evidence and leave human tests open |
+| `fb2f15b` | docs: record the first week13 production deployment |
 
-`main` on GitHub was still `3f2b42b` when this branch was created. Production deploy 1 uploaded `3a5a553`.
+`main` on GitHub was still `3f2b42b` when this branch was created. Production deploy 2 uploaded `fb2f15b`.
 
 ## Deployments confirmed
 
 1. `dpl_6n9mK5bGGWj3Y3gUeZb87Eccikut` — 2026-11-09 02:57 UTC — READY — https://pausa-mx-week12.vercel.app — commit `3a5a553`. Unauthenticated HTTP 200. Week 13 copy is in the HTML.
 
-A second confirmed deployment is not in this file yet. Do not count a deploy that this file only hopes for.
+2. `dpl_AJU8wDbPwNvqZfqwvp1HqRFPrSJq` — 2026-11-09, CLI `READY` — https://pausa-mx-week12-8cgoqsiag-miguel-d52d.vercel.app aliased to https://pausa-mx-week12.vercel.app — commit `fb2f15b`. Inspector: https://vercel.com/miguel-d52d/pausa-mx-week12/AJU8wDbPwNvqZfqwvp1HqRFPrSJq
+
+The commit that records deploy 2 is after `fb2f15b`. It is on the branch. It is not, by itself, another production deploy.
 
 ## Tests actually run
 
