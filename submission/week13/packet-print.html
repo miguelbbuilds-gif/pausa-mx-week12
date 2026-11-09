@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <title>PACKET — Miguel Bravo — PAUSA MX Week 13</title>
+  <style>
+    @page { size: A4; margin: 16mm 15mm; }
+    body { font-family: "Segoe UI", Calibri, sans-serif; color: #122033; line-height: 1.45; font-size: 11pt; }
+    h1 { font-size: 22pt; margin: 0 0 4px; }
+    h2 { font-size: 14pt; margin-top: 1.3em; border-bottom: 1px solid #d9d2c5; padding-bottom: 4px; }
+    h3 { font-size: 12pt; margin-top: 1em; }
+    a { color: #0f766e; }
+    table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 10pt; }
+    th, td { border: 1px solid #d9d2c5; padding: 6px 8px; vertical-align: top; text-align: left; }
+    th { background: #f7f4ee; }
+    code, pre { font-family: Consolas, monospace; font-size: 9pt; }
+    pre { background: #f7f4ee; padding: 10px; white-space: pre-wrap; }
+    img { width: 100%; height: auto; border: 1px solid #d9d2c5; }
+    .meta { color: #5b6776; }
+    .pending { background: #f8ecd4; }
+  </style>
+</head>
+<body>
+  <p class="meta">AI 2041 · Week 13 · Real Humans · Rol MONEY</p>
+  <h1>PACKET — Miguel Bravo</h1>
+  <p><strong>PAUSA MX.</strong> Antes de comprar, entiende lo que comprometes.</p>
+  <p>Documento escrito antes de modificar el código de aplicación de Week 13. Fuente: <code>docs/WEEK13_PACKET.md</code>.</p>
+  <p>
+    Producción Week 12: <a href="https://pausa-mx-week12.vercel.app">https://pausa-mx-week12.vercel.app</a><br />
+    GitHub: <a href="https://github.com/miguelbbuilds-gif/pausa-mx-week12">https://github.com/miguelbbuilds-gif/pausa-mx-week12</a><br />
+    Commit de partida: <code>3f2b42b3cfe6f76064208db837c2b2484b2b604d</code><br />
+    Rama de trabajo: <code>week13-real-humans</code><br />
+    Verificación previa: HTTP 200 en <code>/</code> y <code>/product</code> (2026-11-09 01:41 UTC). Vitest: 15 pruebas verdes.
+  </p>
+
+  <h2>1. Problema</h2>
+  <p>Los consumidores mexicanos necesitan comprender el impacto financiero de una compra sobre el dinero disponible y las obligaciones existentes. PAUSA MX ya calcula esa comparación. Todavía no sabemos qué partes les resultan confusas.</p>
+
+  <h2>2. Usuario exacto</h2>
+  <p>Adultos mexicanos que evalúan compras personales y pueden introducir cantidades aproximadas en MXN. Valeria y Daniel, en <code>docs/PERSONAS.md</code>, siguen siendo personas sintéticas, no entrevistados.</p>
+
+  <h2>3. Definición de éxito</h2>
+  <ol>
+    <li>Cinco sesiones reales de uso observado.</li>
+    <li>Mínimo tres participantes desconocidos.</li>
+    <li>Tres problemas priorizados a partir de esas sesiones.</li>
+    <li>Corrección del problema principal.</li>
+    <li>Nuevo despliegue de esa corrección.</li>
+    <li>Evidencia de un usuario dispuesto a regresar.</li>
+  </ol>
+  <p class="pending">Al escribir este packet, ninguna de esas seis condiciones está cumplida. Implementar el mecanismo de feedback no las sustituye.</p>
+
+  <h2>4. Mockup</h2>
+  <p>Imagen generada el 2026-11-08. No es captura de producción. El ejemplo ficticio cuadra con el motor: 10,000 − 4,000 − 1,000 = 5,000 después de obligaciones; comprar ahora deja 2,500; esperar deja 5,000.</p>
+  <img src="../../docs/week13-mockup.png" alt="Mockup de Mi Pausa con comparación y pregunta de confusión" />
+
+  <h2>5. Flujo</h2>
+  <p>Inicio → Mi Pausa → evento <code>evaluation_started</code> sin montos → validación → si falla, <code>validation_error</code> solo con código de campo → si pasa, el motor corre en el dispositivo → comparación → <code>comparison_viewed</code> → feedback opcional → <code>feedback_submitted</code> → guardar solo con sesión → <code>save_attempted</code> y, si inserta, <code>evaluation_saved</code> sin copiar cifras al evento.</p>
+
+  <h2>6. Swimlane</h2>
+  <p><strong>Usuario</strong> escribe cantidades, lee Comprar ahora / Esperar y puede decir qué confundió. <strong>Aplicación</strong> valida, calcula en el dispositivo y registra solo el nombre del evento. <strong>Almacenamiento</strong> guarda evaluaciones del dueño y no publica feedback ni investigación. <strong>Fundador</strong> observa sesiones reales, anota la cita textual con consentimiento y solo después prioriza tres problemas.</p>
+
+  <h2>7. Benchmark</h2>
+  <table>
+    <tr><th>Producto</th><th>Hecho verificado el 2026-11-08</th><th>Hipótesis, no comprobada en una cuenta</th></tr>
+    <tr>
+      <td><a href="https://www.ynab.com/pricing">YNAB</a></td>
+      <td>109 USD al año o 14.99 USD al mes, más impuestos. Prueba de 34 días sin tarjeta en el alta directa. Conexión de cuentas e importación. FAQ: importación directa en bancos seleccionados de EE. UU., Canadá, Reino Unido y UE.</td>
+      <td>No está hecho para una sola compra en MXN sin banco. No se abrió una cuenta.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.moneyhelper.org.uk/en/everyday-money/budgeting/budget-planner">MoneyHelper Budget planner</a></td>
+      <td>Herramienta gratuita del Reino Unido. Suma ingresos y gastos y muestra el sobrante. El registro de GOV.UK describe consejos, guardado y descarga.</td>
+      <td>No compara una compra concreta “ahora” contra “esperar”.</td>
+    </tr>
+    <tr>
+      <td><a href="https://phpapps.condusef.gob.mx/planifica/index.php">CONDUSEF Planificador</a></td>
+      <td>La URL oficial respondió con el título del Planificador de Presupuesto Personal y Familiar. Es una herramienta pública mexicana de ingresos y gastos.</td>
+      <td>No se completó una simulación. No se afirma que compare una compra a meses tal como la escribe el usuario.</td>
+    </tr>
+  </table>
+  <p>BBVA México, <a href="https://www.bbva.mx/educacion-financiera/interactivos-dinero-inteligente.html">Dinero inteligente</a>, publica la regla 70/20/10 y una calculadora de práctica. PAUSA MX no adopta esa regla ni recomienda al banco.</p>
+
+  <h2>8. Long view</h2>
+  <p>Dentro de tres años, PAUSA MX puede ser el lugar breve al que un adulto en México entra antes de una compra que movería el dinero del periodo, y sale con la cuenta a la vista. Si las sesiones reales muestran qué frases confunden, el producto puede aclararlas sin convertirse en un asesor que decide por la persona. Cualquier cobro por historial o por un hogar compartido sigue siendo una hipótesis hasta que alguien distinto del fundador diga que volvería y por qué.</p>
+
+  <h2>9. Scope cut</h2>
+  <p>Fuera: recomendación de compra, banco, Buró, catálogo, checkout, chatbot central, analítica con montos o correos, citas inventadas, compra de dominio por el agente, y tratar el correo/contraseña como si fuera Google OAuth.</p>
+
+  <h2>10. Arquitectura</h2>
+  <table>
+    <tr><th>Capa</th><th>Elección</th></tr>
+    <tr><td>App</td><td>Next.js App Router, React, TypeScript, Tailwind, Zod</td></tr>
+    <tr><td>Motor</td><td><code>src/engine</code>, sin volverse una recomendación</td></tr>
+    <tr><td>Auth</td><td>Supabase email/password. Google OAuth pendiente</td></tr>
+    <tr><td>Datos</td><td>PostgreSQL + RLS. Admin comprobado en servidor</td></tr>
+    <tr><td>Host</td><td>Vercel y GitHub, mismo repositorio</td></tr>
+  </table>
+
+  <h2>11. Plan de pruebas</h2>
+  <p>Mecánicas: TypeScript, ESLint, Vitest, Playwright, casos financieros, feedback, eventos, auth, RLS, acceso de fundador, móvil y HTTP de producción. Persona sintética: guion más capturas reales; la ejecución en un chat externo queda pendiente si no ocurre. Cinco humanos: protocolo aparte; cero filas simuladas.</p>
+
+  <h2>12. Seguridad y privacidad</h2>
+  <p>Sin secretos en el repo ni en el cliente. RLS en tablas privadas. Validación y límites. Sin datos personales reales en demostraciones. El comentario avisa que puede usarse para mejorar el producto. Google OAuth no se declara hecho.</p>
+
+  <h2>13. Criterios de aceptación</h2>
+  <p>Este PDF existe antes del código nuevo. El resto — eventos, feedback, panel, dos despliegues, cinco humanos, dominio, Google — se marca hecho solo con evidencia posterior.</p>
+
+  <h2>14. Pendientes externos</h2>
+  <table>
+    <tr><th>Requisito</th><th>Estado</th></tr>
+    <tr><td>Condiciones y shadow clause del Blueprint Week 13</td><td>PENDIENTE. No se inventaron. <code>docs/WEEK13_BLUEPRINT.md</code></td></tr>
+    <tr><td>Sign in with Google</td><td>PENDIENTE. No hay credenciales en el entorno.</td></tr>
+    <tr><td>Dominio comprado</td><td>PENDIENTE. RDAP 302/404 no prueba disponibilidad ni propiedad.</td></tr>
+    <tr><td>Cinco sesiones y evidencia de retorno</td><td>PENDIENTE.</td></tr>
+    <tr><td>BUILDCHAT export y DEMO mp4</td><td>PENDIENTE. No se redacta un chat ficticio.</td></tr>
+  </table>
+  <p class="meta">Miguel Bravo · PAUSA MX · Week 13 packet · 2026-11-08</p>
+</body>
+</html>
