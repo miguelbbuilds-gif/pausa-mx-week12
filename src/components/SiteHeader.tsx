@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AuthButton } from "@/components/AuthButton";
+import { MobileNav } from "@/components/MobileNav";
 import { hasSupabasePublicConfig } from "@/lib/supabase/env";
 import { createServerSupabase } from "@/lib/supabase/server";
 
@@ -36,22 +37,14 @@ export async function SiteHeader() {
           ))}
           <AuthButton />
         </nav>
-        <details className="relative md:hidden">
-          <summary className="flex min-h-12 cursor-pointer list-none items-center rounded-full border border-line px-4 text-sm text-navy">
-            Menú
-          </summary>
-          <nav
-            aria-label="Móvil"
-            className="absolute right-0 z-20 mt-2 flex w-56 flex-col gap-3 rounded-2xl border border-line bg-card p-4 text-sm shadow"
-          >
-            {items.map((link) => (
-              <Link key={link.href} href={link.href} className="text-navy hover:text-teal">
-                {link.label}
-              </Link>
-            ))}
-            <AuthButton />
-          </nav>
-        </details>
+        <MobileNav>
+          {items.map((link) => (
+            <Link key={link.href} href={link.href} className="text-navy hover:text-teal">
+              {link.label}
+            </Link>
+          ))}
+          <AuthButton />
+        </MobileNav>
       </div>
     </header>
   );

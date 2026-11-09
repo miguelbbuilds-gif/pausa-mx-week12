@@ -119,7 +119,7 @@ export function ComparisonFeedback() {
         </div>
       </fieldset>
 
-      <div className="absolute left-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+      <div className="h-0 overflow-hidden" aria-hidden="true">
         <label htmlFor="company">Empresa</label>
         <input
           id="company"
