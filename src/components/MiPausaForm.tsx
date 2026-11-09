@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore, useTransition } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { ComparisonPanel } from "@/components/ComparisonPanel";
 import { AmountField } from "@/components/AmountField";
@@ -10,6 +10,8 @@ import {
   type PurchaseInput,
 } from "@/engine";
 import { saveEvaluation, type SaveState } from "@/app/actions/evaluations";
+import { detailForField } from "@/lib/analytics/events";
+import { trackProductEvent } from "@/lib/analytics/track";
 import { purchaseFormSchema } from "@/validation/schema";
 
 const emptyForm = {
@@ -45,6 +47,10 @@ export function MiPausaForm({
     () => true,
     () => false,
   );
+
+  useEffect(() => {
+    trackProductEvent("evaluation_started");
+  }, []);
 
   function update<K extends keyof typeof emptyForm>(key: K, value: string) {
     setForm((current) => ({ ...current, [key]: value }));
@@ -88,9 +94,18 @@ export function MiPausaForm({
         }
       }
       setFieldErrors(next);
+      const firstField = parsed.error.issues[0]?.path[0];
+      trackProductEvent(
+        "validation_error",
+        detailForField(typeof firstField === "string" ? firstField : "form"),
+      );
       return;
     }
     setFieldErrors({});
+    trackProductEvent(
+      "comparison_viewed",
+      form.paymentMethod === "installments" ? "installments" : "full",
+    );
   }
 
   function onSave() {
@@ -98,10 +113,12 @@ export function MiPausaForm({
       onEvaluate({ preventDefault() {} } as React.FormEvent);
       return;
     }
+    trackProductEvent("save_attempted");
     startTransition(async () => {
       const outcome = await saveEvaluation(engineInput);
       setSaveState(outcome);
       if (outcome.status === "saved") {
+        trackProductEvent("evaluation_saved", "saved");
         router.refresh();
       }
     });
