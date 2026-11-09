@@ -1,18 +1,45 @@
-# Sign in with Google — PENDIENTE
+# Sign in with Google — código listo, proveedor pendiente
 
-Checked 2026-11-08. `.env.local` has the public Supabase URL and anon key only. There is no Google client id or client secret in the environment, and the app does not show a Google button.
+El botón **Continuar con Google** ya está en `/auth`. Llama a `signInWithOAuth` y regresa a `/auth/callback`, que cambia el código por una sesión y abre `/product`. Correo y contraseña siguen en la misma pantalla.
 
-Email and password still work. They do **not** satisfy “Sign in with Google”.
+Eso no significa que Google ya inicie sesión. Falta el cliente de Google Cloud y encender el proveedor en Supabase. No pegues el Client ID ni el Client Secret en el chat ni en git.
 
-## What you do
+Cuando termines estos pasos, el despliegue actual puede completar el flujo sin otro cambio de código.
 
-1. Open Google Cloud Console with the venture account. APIs & Services → Credentials → Create OAuth client ID → Web application.
-2. Authorized redirect URI, exact:
+## 1. Google Cloud
+
+1. Abre https://console.cloud.google.com/apis/credentials
+2. Elige o crea el proyecto de la cuenta del venture.
+3. Si Google pide la pantalla de consentimiento, configúrala como External, en modo de prueba, y agrega tu correo como usuario de prueba.
+4. Clic en **Create credentials** → **OAuth client ID**.
+5. Application type: **Web application**.
+6. En **Authorized redirect URIs**, agrega exactamente:
 
    `https://xrpbbmdossmlbstjrlta.supabase.co/auth/v1/callback`
 
-3. Supabase → project `pausa-mx-week12` → Authentication → Providers → Google. Enable it and paste the client id and client secret there, not in git and not in this chat.
-4. Authentication → URL configuration. Site URL `https://pausa-mx-week12.vercel.app`. Also allow `http://localhost:3000`.
-5. Reply that the provider is on. Do not paste the secret.
+7. Crea el cliente. Deja el Client ID y el Client Secret en esa página. No los copies al chat.
 
-After that, the app can add `signInWithOAuth({ provider: 'google' })` beside email/password. Until step 5, a button would fail and is intentionally absent.
+## 2. Supabase
+
+1. Abre https://supabase.com/dashboard/project/xrpbbmdossmlbstjrlta/auth/providers
+2. Abre **Google**.
+3. Activa el proveedor.
+4. Pega el Client ID en el campo Client ID.
+5. Pega el Client Secret en el campo Client Secret.
+6. Guarda.
+
+## 3. URLs de retorno
+
+1. Abre https://supabase.com/dashboard/project/xrpbbmdossmlbstjrlta/auth/url-configuration
+2. Site URL: `https://pausa-mx-week12.vercel.app`
+3. Agrega estas Redirect URLs si no están:
+
+   - `https://pausa-mx-week12.vercel.app/auth/callback`
+   - `http://127.0.0.1:3000/auth/callback`
+   - `http://localhost:3000/auth/callback`
+
+4. Guarda.
+
+## 4. Cómo avisar
+
+Escribe solo: «Google provider enabled». No pegues secretos. A partir de ahí se puede probar el botón en producción.

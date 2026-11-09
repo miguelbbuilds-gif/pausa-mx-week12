@@ -19,3 +19,9 @@ Esto no es un hallazgo de usuarios. Es un fallo de la interfaz encontrado al cor
 **Prueba posterior:** `npx playwright test tests/week13.spec.ts tests/smoke.spec.ts` — **8 passed** (27.6s) el 2026-11-08, después del commit de la corrección.
 
 No hay capturas de una sesión humana porque no hubo sesión humana.
+
+## Pasada del 2026-11-08 por la noche
+
+no reproducible bug found during this pass.
+
+Se agregó el botón de Google y la ruta `/auth/callback`. Las pruebas de esa pasada están en `docs/WEEK13_TEST_LOG.md`. Eso no es un antes/después de un problema humano.

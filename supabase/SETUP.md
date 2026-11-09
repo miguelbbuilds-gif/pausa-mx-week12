@@ -82,16 +82,14 @@ Until that row exists, `/investigacion` stays closed. That is expected.
 
 Do not put the service-role key in Vercel to bypass this.
 
-## 9. Sign in with Google — PENDING
+## 9. Sign in with Google — code ready, provider pending
 
-Email/password is still the only working sign-in. It does **not** satisfy “Sign in with Google”.
-
-To add it without removing email/password:
+Email and password stay. The app also has **Continuar con Google**, which calls `signInWithOAuth({ provider: 'google' })` and returns through `/auth/callback`. That button does not complete a session until the Google provider is enabled. It is not evidence that Sign in with Google already works.
 
 1. Google Cloud Console → APIs & Services → Credentials → OAuth client ID → Web application.
 2. Authorized redirect URI: `https://xrpbbmdossmlbstjrlta.supabase.co/auth/v1/callback`
-3. Supabase → Authentication → Providers → Google → enable, paste Client ID and Client Secret.
-4. Supabase → Authentication → URL configuration → keep `https://pausa-mx-week12.vercel.app` and `http://localhost:3000`.
+3. Supabase → Authentication → Providers → Google → enable, paste Client ID and Client Secret there.
+4. Supabase → Authentication → URL configuration. Site URL `https://pausa-mx-week12.vercel.app`. Redirect URLs must include `https://pausa-mx-week12.vercel.app/auth/callback` and `http://127.0.0.1:3000/auth/callback`.
 5. Tell the agent the provider is enabled. Do not paste the client secret into chat or into git.
 
-Until step 5, the app must not show a Google button that cannot complete.
+Exact clicks are in `docs/WEEK13_GOOGLE_OAUTH.md`.

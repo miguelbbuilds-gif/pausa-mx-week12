@@ -24,9 +24,9 @@ Guarda la evidencia del sí: una nota con fecha y el identificador, o un mensaje
 
 Presencial o pantalla compartida. La persona usa el producto. Tú no tecleas por ella, salvo que pida ayuda para abrir el enlace.
 
-URL, cuando el despliegue de Week 13 esté en producción: https://pausa-mx-week12.vercel.app
+URL de producción: https://pausa-mx-week12.vercel.app
 
-Hasta que ese despliegue exista, no des por hecha la prueba sobre la versión nueva.
+La versión con feedback ya está desplegada. Una sesión hecha sobre un mockup o sobre un chat no cuenta.
 
 ## Tarea
 
@@ -76,6 +76,21 @@ En `docs/WEEK13_HUMAN_TEST_LOG.md` y, si el fundador ya aplicó la migración y 
 4. Corrige solo ese #1, con capturas de antes y después de la app real.
 5. Prueba, commit y despliegue.
 6. Si alguien dijo que volvería, guarda esa frase con su identificador. No inventes el sí.
+
+## Cómo conducir 10 minutos
+
+No teclees por la persona. No señales el texto antes de que lo busque. Si se queda callada más de unos segundos, pregunta «¿qué estás viendo?» y anota la respuesta textual.
+
+| Minuto | Tú | La persona |
+| --- | --- | --- |
+| 0:00 | Lees el consentimiento y esperas un sí. | Acepta o se detiene. Si no acepta, terminas. |
+| 0:30 | Compartes https://pausa-mx-week12.vercel.app y callas. | Entra sola a Mi Pausa. |
+| 1:00 | Lees la tarea de arriba, una sola vez. | Escribe sus cifras o las DEMO si no quiere usar las suyas. |
+| 4:00 | Si no ha llegado a la comparación, no le indiques el botón. Anota dónde se detuvo. | Pulsa «Ver comparación» cuando lo encuentre. |
+| 6:00 | Haces las cuatro preguntas neutrales. | Responde. Copias la frase, no un resumen. |
+| 8:00 | Preguntas si quiere dejar el comentario dentro de la app. No lo escribes tú. | Lo envía o no. |
+| 9:00 | Cierras: gracias, puede parar. |  |
+| 9:30 | En cuanto se vaya, llenas una fila de la bitácora. |  |
 
 ## Qué no cuenta
 

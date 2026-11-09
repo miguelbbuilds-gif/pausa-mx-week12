@@ -44,9 +44,17 @@ No Google client credentials were available. Email/password stays. It is not rec
 
 A `<summary>` menu was exposed as a generic in Chromium, so the phone test could not open navigation. Replaced with a `<button>`. This was a mechanical defect, not a human-test finding.
 
+## 2026-11-08 — Week 13 SQL applied without resetting data
+
+Both Week 13 SQL files were applied with `supabase db query` on project `xrpbbmdossmlbstjrlta`. `evaluations` stayed at 9 rows. `app_admins` stayed empty because `miguelb.builds@gmail.com` is not in `auth.users`. No other account was promoted. Probe rows created to test events and feedback were deleted afterward. `supabase db reset` was not used. The CLI migration history still does not list the two `20261108` files; do not run `db push` or `db reset` to “fix” that.
+
+## 2026-11-08 — Google button before the provider is enabled
+
+The course requires Sign in with Google, and the founder asked for the button so the provider can be switched on later without another code change. Email/password stays. The button is not recorded as a completed Google sign-in. Steps: `docs/WEEK13_GOOGLE_OAUTH.md`.
+
 ## 2026-11-09 — Next action
 
-Apply `supabase/migrations/20261108_product_events.sql` and `supabase/migrations/20261108_feedback_research.sql` in the Supabase SQL editor, confirm `app_admins` contains the founder, then run the five observed sessions in `docs/WEEK13_HUMAN_TEST_PROTOCOL.md`. Do not rank a human problem before those sessions exist.
+Create or sign in on https://pausa-mx-week12.vercel.app/auth with the founder email, then insert that user into `public.app_admins`. Enable the Google provider using `docs/WEEK13_GOOGLE_OAUTH.md`. Run the five observed sessions in `docs/WEEK13_HUMAN_TEST_PROTOCOL.md`. Do not rank a human problem before those sessions exist.
 
 ## 2026-11-08 — Week 13 migrations not applied remotely
 

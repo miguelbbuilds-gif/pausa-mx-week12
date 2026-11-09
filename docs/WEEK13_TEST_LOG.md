@@ -53,6 +53,18 @@ The evaluations table already rejects an anonymous read. The Week 13 tables are 
 
 ## Not run as a passing claim
 
-- Google OAuth: not configured.
+- Google OAuth round trip: the button exists; the provider is not enabled.
 - Five human sessions: not done.
-- Production HTTP of the Week 13 build: not deployed at the time of this log. A later deployment log entry is the only place that may say otherwise.
+- Production HTTP of the Week 13 build: recorded later in `docs/WEEK13_DEPLOYMENT_LOG.md`.
+
+## Closeout pass, 2026-11-08 night
+
+- `npx tsc --noEmit`: pass.
+- `npx eslint src tests scripts --max-warnings 0`: pass.
+- `npm test`: **28 passed** (8 files). Added `src/lib/site-origin.test.ts`.
+- `npm run build`: pass. Route `/auth/callback` is present.
+- Playwright `CI=1`, 1 worker, smoke + week13 + auth-save: **12 passed** (36.3s). The dev server again logged `ECONNRESET` / “destination stream errored”. The tests still passed. That warning was already seen on 2026-11-08 and was not turned into a product bug.
+- New checks in that run: the Google button is visible beside email and password; a freshly created account sees “no está autorizada” on `/investigacion` and does not see the quote field.
+- Anonymous probe after the migrations: `evaluations` visible rows 0. The five Week 13 tables return `42501`.
+- `app_admins`: 0 rows. `miguelb.builds@gmail.com` is not in `auth.users`.
+- no reproducible bug found during this pass.

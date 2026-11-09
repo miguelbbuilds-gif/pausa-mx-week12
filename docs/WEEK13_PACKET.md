@@ -223,8 +223,9 @@ Queda fuera de Week 13:
 | Lenguaje | TypeScript estricto | El motor sigue siendo testeable |
 | Validación | Zod | Formularios de compra, feedback e investigación |
 | Motor | `src/engine` sin cambio de regla | La comparación no se vuelve una recomendación |
-| Auth | Supabase Auth email/password | Ya existe. Google OAuth queda pendiente si no hay credenciales |
+| Auth | Supabase Auth: correo/contraseña y botón de Google | El botón llama a `signInWithOAuth`. La sesión de Google no se completa hasta que el proveedor esté activo |
 | Datos | Supabase PostgreSQL + RLS | Evaluaciones, eventos, feedback, investigación |
+| Analytics | `product_events` con lista cerrada de nombres y códigos | No guarda montos, correos, contraseñas ni tokens |
 | Admin | Comprobación en servidor + RLS `is_founder()` | Ocultar un enlace no basta |
 | Pruebas | Vitest + Playwright | Mecánicas, no personas reales |
 | Host | Vercel | El mismo proyecto |
@@ -264,7 +265,7 @@ Protocolo, bitácora, priorización y antes/después en documentos aparte. Cero 
 4. Límites de caracteres, tipos y frecuencia en feedback y eventos.
 5. Los ejemplos de la interfaz siguen marcados como ficticios. Las sesiones DEMO, si se usan en pruebas, llevan la etiqueta DEMO y no cuentan como humanos.
 6. El comentario advierte que puede usarse para mejorar el producto y pide no incluir datos personales.
-7. Google OAuth: **PENDIENTE** hasta que existan cliente de Google y proveedor activado en Supabase. Correo y contraseña no se presentan como sustituto.
+7. Google OAuth: el botón y `/auth/callback` están en la app. Completar el inicio de sesión sigue **PENDIENTE** hasta el Client ID, el Client Secret y el proveedor de Google en Supabase. Correo y contraseña no se presentan como sustituto.
 
 ---
 
@@ -290,14 +291,14 @@ Protocolo, bitácora, priorización y antes/después en documentos aparte. Cero 
 | Requisito | Estado | Quién actúa |
 | --- | --- | --- |
 | Blueprint Week 13: condiciones y shadow clause | PENDIENTE — no está el documento | Miguel, si el equipo lo entrega |
-| Sign in with Google | PENDIENTE — no hay client id/secret en el entorno | Miguel, en Google Cloud y Supabase |
-| Alta del fundador en `app_admins` | Se documentará con la migración; hoy no hay fila | Miguel, un `insert` en SQL |
+| Sign in with Google | Código listo. PENDIENTE el Client ID y el Client Secret en los dashboards, no en el chat | Miguel, en Google Cloud y Supabase |
+| Alta del fundador en `app_admins` | `miguelb.builds@gmail.com` no está en `auth.users`. Cero filas de admin | Miguel crea esa cuenta y luego el `insert` |
 | Dominio comprado | PENDIENTE — este agente no paga | Miguel |
 | Cinco sesiones, tres desconocidos | PENDIENTE — no hay evidencia | Miguel |
 | Consentimiento de esas personas | PENDIENTE | Miguel y cada participante |
 | Export de BUILDCHAT desde Cursor | PENDIENTE — no se redacta un chat ficticio | Miguel |
 | Video DEMO mp4 | PENDIENTE — no hay grabación de pantalla | Miguel |
-| Aplicar la migración SQL nueva en Supabase | Pendiente hasta que el SQL exista y Miguel lo ejecute, o hasta que el CLI autenticado pueda hacerlo | Miguel si hace falta el dashboard |
+| Migraciones Week 13 en Supabase | Aplicadas el 2026-11-08 en `xrpbbmdossmlbstjrlta`. Las 9 evaluaciones previas siguen | Hecho |
 
 RDAP el 2026-11-09 01:44 UTC: `https://rdap.org/domain/pausamx.site`, `pausamx.online` y `pausamx.com` respondieron **302**. `pausamx.mx` respondió **404** `application/rdap+json`. Ninguno de esos códigos demuestra que el nombre esté libre, premium o ya comprado. No hay dominio propio de PAUSA MX en este repositorio. La lista de precios de Porkbun del 2026-11-01 (1.96 USD el primer año de `.site` y `.online`) **no se volvió a leer** en esta sesión.
 
@@ -305,4 +306,13 @@ RDAP el 2026-11-09 01:44 UTC: `https://rdap.org/domain/pausamx.site`, `pausamx.o
 
 ## Lo que este packet no afirma
 
-No afirma que un humano ya haya vuelto, que Google OAuth funcione, que el dominio exista, ni que una mejora de copy esté validada por usuarios. Esas frases solo podrán escribirse después, junto a la evidencia.
+No afirma que un humano ya haya vuelto, que Google OAuth ya inicie sesión, que el dominio exista, ni que una mejora de copy esté validada por usuarios. Esas frases solo podrán escribirse después, junto a la evidencia.
+
+## 15. Estado verificado después de implementar
+
+Revisado de nuevo el 2026-11-08 por la noche, sin cambiar las secciones históricas de arriba.
+
+- El archivo `docs/week13-mockup.png` existe y pesa 590204 bytes. Sigue siendo ilustración, no captura de producción.
+- Las tablas `app_admins`, `product_events`, `comparison_feedback`, `research_sessions`, `research_priorities` y `evaluations` tienen RLS. Un cliente anónimo recibe `42501` al leer las cinco primeras y 0 filas visibles en evaluaciones.
+- `app_admins` tiene 0 filas. No se asignó un administrador a otra cuenta.
+- La bitácora humana sigue en 0. El problema #1 no está elegido.
