@@ -5,6 +5,13 @@ export const PRODUCT_EVENTS = [
   "save_attempted",
   "evaluation_saved",
   "feedback_submitted",
+  "pricing_viewed",
+  "tier_selected",
+  "simulator_started",
+  "simulator_completed",
+  "scenario_saved",
+  "pricing_interest",
+  "pricing_rejected",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENTS)[number];
@@ -28,6 +35,18 @@ export const DETAIL_CODES = [
   "saved",
   "ok",
   "rate_limited",
+  "free",
+  "reuse",
+  "pausa_plus",
+  "consumer",
+  "sponsor",
+  "too_expensive",
+  "not_useful_enough",
+  "use_too_infrequently",
+  "free_alternative",
+  "prefer_one_time_payment",
+  "prefer_employer_to_pay",
+  "other",
 ] as const;
 
 export type DetailCode = (typeof DETAIL_CODES)[number];
