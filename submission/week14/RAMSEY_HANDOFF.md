@@ -31,12 +31,12 @@ PRICING: https://pausa-mx-week12.vercel.app/pricing
 | Persona test | PENDING EXTERNAL CONFIG | Screenshots exist. The external chat was not run. |
 | Persona fix | NOT VERIFIED | No persona result, so no fix was invented. |
 | Tests | COMPLETE | Vitest 34. Playwright week14: 6 passed after the locator fix. Build passed. |
-| Bug, fix, redeploy | COMPLETE for the footer | “Semanas 12 y 13” on deploy 1. Fixed in source. Redeploy is deploy 2 when its ID is recorded. |
+| Bug, fix, redeploy | COMPLETE | Footer said weeks 12 and 13 on deploy 1. Deploy 2 `dpl_cRXVzrors1Qiu8pF6ngh6KJZiWRB` shows weeks 12, 13 and 14. |
 | Google auth | PENDING EXTERNAL CONFIG | Button exists. Provider credentials do not. Email/password is not a substitute. |
 | RLS | COMPLETE | `pricing_scenarios` and the Week 12/13 private tables. |
 | Security | COMPLETE for the floor that was checked | No service role in `src`. `.gitignore` ignores `.env*`. |
 | 5+ commits | COMPLETE | See git log of `week14-pricing`. |
-| 2+ deploys | NOT VERIFIED until deploy 2 is confirmed | Deploy 1 is confirmed. |
+| 2+ deploys | COMPLETE | `dpl_45tCxjhc3bwdFJhNygzUjWLHhHFH` and `dpl_cRXVzrors1Qiu8pF6ngh6KJZiWRB`. |
 | Real domain | PENDING HUMAN EVIDENCE | No purchased domain was found. |
 | Demo | PENDING HUMAN EVIDENCE | Script only. No mp4. |
 | Buildchat | PENDING EXTERNAL CONFIG | This PDF is not the Cursor export. |
