@@ -58,6 +58,16 @@ Create or sign in on https://pausa-mx-week12.vercel.app/auth with the founder em
 
 Tomorrow’s first move: create the founder account at https://pausa-mx-week12.vercel.app/auth and insert that user into `public.app_admins`. Do not start the five sessions before that account can open `/investigacion`.
 
+## 2026-11-15 — Week 14 prices stay hypotheses
+
+PAUSA Free remains MXN 0 and the comparison is not paywalled. PAUSA Reuse is shown at MXN 39 as an experimental one-time saved-reuse price, not a validated subscription. PAUSA+ is shown at MXN 79 per month beside the free core because the adversary instruction was to measure payment, frequency, and rejection reasons. Neither 39 nor 79 is treated as observed demand. B2B is a pilot hypothesis with no client.
+
+Assumptions: conversion, CAC, support, infrastructure, processing, review, corrections, exceptions, and churn are inputs, labeled ASSUMED or UNKNOWN. The simulator’s MRR is arithmetic, not revenue. A strict 10:1 at MXN 79 would require MXN 790 per month of equivalent value. That value is NOT YET MEASURED.
+
+Evidence that would kill the subscription: nobody pays, nobody returns, frequency stays low, contribution is negative, or the free comparison already does the job. The stopping rule is on `/pricing`. Do not answer that with an untested discount.
+
+Next move for pricing: one real conversation using `docs/WEEK14_PRICING_INTERVIEW.md`, including a refusal if that is what the person says.
+
 ## 2026-11-08 — Week 13 migrations not applied remotely
 
 The anon probe saw `evaluations` and zero rows. `product_events` and the research tables returned `PGRST205`. SQL is in the repo. Applying it needs the Supabase SQL editor. No service-role key was added to the app.
