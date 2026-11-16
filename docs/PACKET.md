@@ -234,3 +234,9 @@ Let amounts be decimal MXN converted to integer cents with half-up rounding on t
 - Future affordability warning when payment method is installments **or** when any future amount is created, because the form does not collect future income.
 
 The Comparison presents these figures. It does not select a winner.
+
+---
+
+## Week 14 pointer
+
+Week 14 pricing lives in `docs/WEEK14_PACKET.md`. It does not replace this Week 12 packet and it does not delete Week 13. The essential comparison stays free. MXN 39 and MXN 79 are experimental prices, not validated demand.
