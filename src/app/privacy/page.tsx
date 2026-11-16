@@ -26,7 +26,7 @@ export default function PrivacyPage() {
       </ul>
       <h2 className="font-display text-2xl text-navy">Qué se observa, sin tus montos</h2>
       <p>
-        Al usar Mi Pausa, la aplicación puede registrar el nombre de un evento:
+        Al usar Mi Pausa o Precios, la aplicación puede registrar el nombre de un evento:
         que empezaste, que un campo no pasó la validación, que viste la
         comparación, que intentaste guardar, que el guardado sí ocurrió, o que
         enviaste un comentario. Ese registro no incluye cantidades, nombre,
