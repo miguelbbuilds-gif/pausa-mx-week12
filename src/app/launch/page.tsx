@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LaunchLibrary } from "@/components/LaunchLibrary";
+import { LaunchProductLink } from "@/components/LaunchProductLink";
+import { LaunchSignals } from "@/components/LaunchSignals";
 
 export const metadata: Metadata = {
   title: "Antes de comprar, haz una pausa",
@@ -26,12 +28,10 @@ export default function LaunchPage() {
       <p className="mt-5 max-w-2xl text-xl text-muted">
         Compara qué cambia en tu dinero disponible con los datos que ingreses.
       </p>
-      <Link
-        href="/product"
-        className="mt-8 inline-flex h-14 items-center rounded-full bg-teal px-8 text-lg font-medium text-white hover:bg-teal-dark"
-      >
-        Prueba una compra
-      </Link>
+      <div className="mt-8">
+        <LaunchProductLink />
+      </div>
+      <LaunchSignals />
       <ul className="mt-8 max-w-2xl space-y-2 text-sm text-navy">
         {coverage.map((line) => (
           <li key={line}>{line}</li>

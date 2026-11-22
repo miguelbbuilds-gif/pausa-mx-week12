@@ -6,6 +6,12 @@ const formatLabel = {
   "share-card": "Tarjeta para compartir",
 } as const;
 
+const seriesDetail = {
+  "antes-de-comprar": "antes_de_comprar",
+  "lo-que-comprometes": "lo_que_comprometes",
+  "comprar-vs-esperar": "comprar_vs_esperar",
+} as const;
+
 export function LaunchLibrary() {
   return (
     <div className="mt-14 space-y-14">
@@ -18,6 +24,8 @@ export function LaunchLibrary() {
             <article
               key={series.id}
               id={series.id}
+              data-track="series"
+              data-detail={seriesDetail[series.id]}
               className="rounded-2xl border border-line bg-card p-5"
             >
               <h3 className="font-display text-2xl text-navy">{series.title}</h3>
@@ -72,7 +80,13 @@ export function LaunchLibrary() {
         </p>
         <div className="mt-6 space-y-10">
           {ASSETS.map((asset) => (
-            <article key={asset.id} id={asset.id} className="space-y-4">
+            <article
+              key={asset.id}
+              id={asset.id}
+              data-track="asset"
+              data-detail={asset.id}
+              className="space-y-4"
+            >
               <h3 className="font-display text-2xl text-navy">{asset.title}</h3>
               <p className="text-sm text-teal">
                 Pieza terminada · {formatLabel[asset.format]} · {asset.claimClass}
