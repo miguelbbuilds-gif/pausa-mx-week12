@@ -43,8 +43,8 @@ GITHUB: https://github.com/miguelbbuilds-gif/pausa-mx-week12
 | Tests | COMPLETE | Typecheck, ESLint, Vitest 38, Playwright 24, production build. `docs/WEEK15_TEST_LOG.md` |
 | Bug / fix | COMPLETE | Cash results omitted the coverage warning. Fixed in `b791b43` and retested. |
 | Commits | COMPLETE | Eight Week 15 commits before this handoff, starting at `6ff9ea9`. |
-| Deploys | COMPLETE | `dpl_Bs6jswtA9MrdAMuXy1qxdSy46W5G` and `dpl_CcHfFUCViKyvfcFVhDZBuJAHFjMH`. |
+| Deploys | COMPLETE | `dpl_Bs6jswtA9MrdAMuXy1qxdSy46W5G`, `dpl_CcHfFUCViKyvfcFVhDZBuJAHFjMH`, and post-merge `dpl_3Jur9LJQBDKv7zQ4eWznvGUisW26`. |
 | Demo | PENDING HUMAN RECORDING | `docs/WEEK15_DEMO_SCRIPT.md`. No MP4. |
 | Chat | PENDING AUTHENTIC CHAT EXPORT | No BUILDCHAT file was invented. |
 
-Weeks 12–14 were not deleted. No evaluation table was dropped. The Week 15 SQL extends the event allowlist and does not delete rows. Whether that file has been applied on the hosted database is recorded separately if it was not run.
+Weeks 12–14 were not deleted. No evaluation table was dropped. The Week 15 SQL was applied on the hosted project and the existing evaluation rows remained.
