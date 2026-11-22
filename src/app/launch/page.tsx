@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LaunchLibrary } from "@/components/LaunchLibrary";
 
 export const metadata: Metadata = {
   title: "Antes de comprar, haz una pausa",
@@ -104,6 +105,8 @@ export default function LaunchPage() {
         </div>
       </section>
 
+      <LaunchLibrary />
+
       <section className="mt-14 max-w-3xl" aria-labelledby="limites">
         <h2 id="limites" className="font-display text-3xl text-navy">
           Límites
@@ -111,7 +114,7 @@ export default function LaunchPage() {
         <ul className="mt-4 space-y-3 text-lg text-muted">
           <li>La comparación usa solo las cifras que escribes.</li>
           <li>Un campo vacío no significa que la compra sea asequible.</li>
-          <li>No dice “sí te alcanza”, ni “compra”, ni “no compres”.</li>
+          <li>No afirma que el dinero alcance, ni indica si debes pagar o esperar.</li>
           <li>
             Un diseño cuidado no convierte el resultado en autoridad financiera.
           </li>

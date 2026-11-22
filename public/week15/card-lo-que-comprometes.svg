@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img">
+  <rect width="1080" height="1350" fill="#f7f4ee"/>
+  
+    <text x="64" y="78" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">PAUSA MX</text>
+    <text x="64" y="118" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="22">Datos de demostración</text>
+  
+  <text x="64" y="230" fill="#122033" font-family="Georgia, 'Times New Roman', serif" font-size="54">Lo que realmente</text>
+  <text x="64" y="300" fill="#122033" font-family="Georgia, 'Times New Roman', serif" font-size="54">comprometes</text>
+  <text x="64" y="400" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="28">Precio de contado del ejemplo</text>
+  <text x="64" y="450" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="40">$12,000</text>
+  <text x="64" y="540" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="28">Plan escrito: enganche $2,000 + 12 × $1,100</text>
+  <text x="64" y="600" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="40">Total escrito · $15,200</text>
+  <text x="64" y="680" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="30">Diferencia frente al contado · $3,200</text>
+  <text x="64" y="760" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="26">Esa diferencia sale de la suma. No se inventó un interés.</text>
+  <text x="64" y="840" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="28">Después del enganche quedarían $4,500 hoy.</text>
+  <text x="64" y="890" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="26">Los pagos siguientes no se comparan con un ingreso futuro.</text>
+  <rect x="64" y="960" width="360" height="72" rx="36" fill="#0f766e"/>
+  <text x="92" y="1006" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="28">Prueba una compra</text>
+  <rect x="40" y="1140" width="1000" height="132" rx="18" fill="#f8ecd4"/><text x="64" y="1176" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">PAUSA MX calcula únicamente con los datos que ingresas.</text><text x="64" y="1204" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">No verifica que hayas incluido todas tus obligaciones.</text><text x="64" y="1232" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">El resultado no determina si una compra es asequible para ti.</text>
+</svg>

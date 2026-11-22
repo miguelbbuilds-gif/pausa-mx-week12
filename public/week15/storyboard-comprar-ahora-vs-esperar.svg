@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img">
+  <rect width="1080" height="1920" fill="#f7f4ee"/>
+  
+    <text x="64" y="78" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">PAUSA MX</text>
+    <text x="64" y="118" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="22">Datos de demostración · Guion visual, no es un video</text>
+  
+  <text x="64" y="210" fill="#122033" font-family="Georgia, 'Times New Roman', serif" font-size="58">Comprar ahora</text>
+  <text x="64" y="280" fill="#122033" font-family="Georgia, 'Times New Roman', serif" font-size="58">vs esperar</text>
+  <rect x="64" y="340" width="952" height="220" rx="24" fill="#fffcf7" stroke="#d9d2c5"/>
+  <text x="96" y="400" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="24">CUADRO 1 · LOS DATOS</text>
+  <text x="96" y="450" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="28">Disponible $18,000 · Esenciales $9,000</text>
+  <text x="96" y="495" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="28">Ya comprometidos $2,500 · Contado $12,000</text>
+  <rect x="64" y="590" width="952" height="240" rx="24" fill="#fffcf7" stroke="#d9d2c5"/>
+  <text x="96" y="650" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="24">CUADRO 2 · COMPRAR AHORA</text>
+  <text x="96" y="720" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Quedarían −$5,500 hoy</text>
+  <text x="96" y="775" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="26">No es una instrucción de comprar</text>
+  <rect x="64" y="860" width="952" height="240" rx="24" fill="#fffcf7" stroke="#d9d2c5"/>
+  <text x="96" y="920" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="24">CUADRO 3 · ESPERAR</text>
+  <text x="96" y="990" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Quedarían $6,500 hoy, sin pagos nuevos</text>
+  <text x="96" y="1045" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="26">Esperar no es el escenario ganador</text>
+  <rect x="64" y="1140" width="952" height="200" rx="24" fill="#122033"/>
+  <text x="96" y="1210" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="28">Mismos datos. Ninguna columna decide.</text>
+  <text x="96" y="1270" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="32">Prueba una compra</text>
+  <text x="64" y="1420" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="24">Formato: guion vertical 9:16. No existe un MP4 de esta pieza.</text>
+  <rect x="40" y="1680" width="1000" height="132" rx="18" fill="#f8ecd4"/><text x="64" y="1716" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">PAUSA MX calcula únicamente con los datos que ingresas.</text><text x="64" y="1744" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">No verifica que hayas incluido todas tus obligaciones.</text><text x="64" y="1772" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">El resultado no determina si una compra es asequible para ti.</text>
+</svg>
