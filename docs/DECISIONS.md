@@ -58,6 +58,16 @@ Create or sign in on https://pausa-mx-week12.vercel.app/auth with the founder em
 
 Tomorrow’s first move: create the founder account at https://pausa-mx-week12.vercel.app/auth and insert that user into `public.app_admins`. Do not start the five sessions before that account can open `/investigacion`.
 
+## 2026-11-22 — Week 15 distribution does not prove an audience
+
+The public page is `/launch`. The promise stays “Antes de comprar, compara qué cambia en tu dinero disponible con los datos que ingreses.” Three series, six concepts, and three finished demo assets are in the repo. Concepts are not assets. Demo pesos are not users.
+
+A cash comparison used to leave `futureAffordabilityWarning` null, so a remainder could appear without the coverage lines. Both scenarios also gave “Comprar ahora” the only teal border. The home page claimed “en menos de un minuto” without a timing study. Those are fixed in `b791b43`. The result still does not say whether to buy.
+
+Audience tests, the three-person teardown, the demo recording, and an authentic chat export were not produced. They stay pending. No quote was written in their place.
+
+The event allowlist grew. The migration does not delete evaluations. Applying it on the hosted database is a separate step from committing the SQL.
+
 ## 2026-11-15 — Week 14 prices stay hypotheses
 
 PAUSA Free remains MXN 0 and the comparison is not paywalled. PAUSA Reuse is shown at MXN 39 as an experimental one-time saved-reuse price, not a validated subscription. PAUSA+ is shown at MXN 79 per month beside the free core because the adversary instruction was to measure payment, frequency, and rejection reasons. Neither 39 nor 79 is treated as observed demand. B2B is a pilot hypothesis with no client.

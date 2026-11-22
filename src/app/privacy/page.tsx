@@ -26,11 +26,13 @@ export default function PrivacyPage() {
       </ul>
       <h2 className="font-display text-2xl text-navy">Qué se observa, sin tus montos</h2>
       <p>
-        Al usar Mi Pausa o Precios, la aplicación puede registrar el nombre de un evento:
-        que empezaste, que un campo no pasó la validación, que viste la
-        comparación, que intentaste guardar, que el guardado sí ocurrió, o que
-        enviaste un comentario. Ese registro no incluye cantidades, nombre,
-        correo, contraseña ni token. El comentario opcional sí guarda el texto
+        Al usar Mi Pausa, Precios o la página de lanzamiento, la aplicación puede
+        registrar el nombre de un evento: que empezaste, que un campo no pasó la
+        validación, que viste la comparación, que intentaste guardar, que el
+        guardado sí ocurrió, que enviaste un comentario, que abriste el
+        lanzamiento, que una serie o una pieza entró en pantalla, que copiaste
+        el enlace o que seguiste hacia Mi Pausa. Ese registro no incluye
+        cantidades, nombre, correo, contraseña ni token. El comentario opcional sí guarda el texto
         que tú escribes, con un aviso de que puede usarse para mejorar el
         producto. No lo uses para dejar datos de contacto.
       </p>

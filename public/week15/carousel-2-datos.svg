@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img">
+  <rect width="1080" height="1080" fill="#f7f4ee"/>
+  
+    <text x="64" y="78" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">PAUSA MX</text>
+    <text x="64" y="118" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="22">Datos de demostración</text>
+  
+  
+  <text x="64" y="220" fill="#122033" font-family="Georgia, 'Times New Roman', serif" font-size="48">Los datos del ejemplo</text>
+  <text x="64" y="320" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Dinero disponible · $18,000</text>
+  <text x="64" y="380" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Gastos esenciales · $9,000</text>
+  <text x="64" y="440" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Pagos ya comprometidos · $2,500</text>
+  <text x="64" y="520" fill="#0f766e" font-family="Segoe UI, Arial, sans-serif" font-size="32">Después de esas obligaciones · $6,500</text>
+  <text x="64" y="600" fill="#122033" font-family="Segoe UI, Arial, sans-serif" font-size="32">Precio de contado · $12,000</text>
+  <text x="64" y="720" fill="#5b6776" font-family="Segoe UI, Arial, sans-serif" font-size="24">Pieza 2 de 4 · Estas cifras no son de una persona</text>
+  <rect x="64" y="780" width="360" height="64" rx="32" fill="#0f766e"/>
+  <text x="92" y="822" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="26">Prueba una compra</text>
+  
+  <rect x="40" y="900" width="1000" height="132" rx="18" fill="#f8ecd4"/><text x="64" y="936" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">PAUSA MX calcula únicamente con los datos que ingresas.</text><text x="64" y="964" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">No verifica que hayas incluido todas tus obligaciones.</text><text x="64" y="992" fill="#8a5a12" font-family="Segoe UI, Arial, sans-serif" font-size="20">El resultado no determina si una compra es asequible para ti.</text>
+</svg>

@@ -240,3 +240,49 @@ The Comparison presents these figures. It does not select a winner.
 ## Week 14 pointer
 
 Week 14 pricing lives in `docs/WEEK14_PACKET.md`. It does not replace this Week 12 packet and it does not delete Week 13. The essential comparison stays free. MXN 39 and MXN 79 are experimental prices, not validated demand.
+
+---
+
+## Week 15 — Distribution
+
+Full pre-code packet: `docs/WEEK15_PACKET.md`. Written 2026-11-22 on `week15-distribution` before Week 15 application code. Weeks 12–14 stay. This section does not record audience reactions.
+
+**Audience.** Adult in Mexico about to make a discretionary purchase large enough to change available money. Role description, not an interviewed person.
+
+**Moment.** Immediately before paying, financing, or waiting.
+
+**User vs payer.** The user is that adult. No payer is established. The comparison stays free. MXN 39 and MXN 79 remain experimental.
+
+**Workaround.** Calculator, mental arithmetic, Notes, Excel, a budget, or a banking app. ASSUMPTION. Not a measured count.
+
+**Promise.** “Antes de comprar, compara qué cambia en tu dinero disponible con los datos que ingreses.”
+
+**Exclusions.** Not a financial course, bank, advisor, debt app, or recommender. CTA: “Prueba una compra en PAUSA MX.”
+
+**Blueprint.** Bounded comparison from entered data. Commitments: a complete scenario in the accessible release, whole-task input burden, and interpretation. Dissent: “A visible trade-off may read as permission to buy.”
+
+**Shadow clause.** “Do not turn incomplete inputs or polished content into false assurance that a purchase is affordable.” Incomplete inputs do not imply affordability. Show coverage limits. Say that PAUSA MX only knows the entered data. Do not say “sí te alcanza”, and do not say “compra” or “no compres” as a verdict.
+
+**Brand voice.** Clear, direct, Mexican without clichés, calm. Not moralizing, alarmist, or guru. Banned: “Sí te alcanza.” “Compra inteligentemente.” “Esta compra es mala.” “Estás desperdiciando tu dinero.”
+
+**Visual system.** Existing paper, navy, and teal. Teal opens the tool. It does not award “Comprar ahora”. Both scenarios stay level.
+
+**Creative process.** RESEARCH → WRITING → VISUAL PRODUCTION → CLAIM CHECK → STYLE REVIEW → REVISION → HUMAN APPROVAL → PUBLISH/TEST. Human approval is required before publication. AI may draft. AI cannot demonstrate trust, resonance, conversion, behavior change, or demand.
+
+**Three series.** Antes de comprar. Lo que realmente comprometes. Comprar ahora vs esperar. Demo data only. Series 3 never picks a winner.
+
+**Six concepts.** C1 celular de $12,000. C2 audífonos de $1,800. C3 el mensual no es el compromiso. C4 enganche y lo que sigue. C5 las dos columnas. C6 esperar no es el premio. Concepts are not finished assets.
+
+**Three finished assets, specified and not yet files.** Carousel “Antes de comprar un celular de $12,000…”. Vertical storyboard “Comprar ahora vs esperar”. Shareable card “Lo que realmente comprometes”. At least two formats. Destination `public/week15/`.
+
+**Two audience tests.** PENDING HUMAN EVIDENCE. No quotes in this packet.
+
+**Architecture.** Public `/launch`, typed content records, SVG assets, the existing event table extended without storing amounts or identity.
+
+**Test plan.** TypeScript, ESLint, Vitest, Playwright, production build. Routes `/`, `/launch`, `/product`, `/pricing`, `/about`. Cash scenario today: four amounts, a payment choice that defaults to contado, then “Ver comparación”. No abandonment rate is invented.
+
+**Security.** No secrets, auth and RLS unchanged, allowlisted events, labeled demo data, no purchased domain required.
+
+**Scope cut.** No new price, no bank link, no invented proof, no deleted prior weeks.
+
+**Long view.** Distribution brings someone to try one purchase with their own numbers. It does not prove trust or payment.

@@ -19,7 +19,10 @@ describe("evaluatePurchase", () => {
     expect(result.remainingAfterImmediate).toBe(2500);
     expect(result.comparison?.buyNow.remainingAfterImmediate).toBe(2500);
     expect(result.comparison?.wait.remainingAfterImmediate).toBe(5000);
-    expect(result.futureAffordabilityWarning).toBeNull();
+    expect(result.futureAffordabilityEstablished).toBe(false);
+    expect(result.futureAffordabilityWarning).toMatch(
+      /no determina si una compra es asequible/i,
+    );
   });
 
   it("allows a purchase that exceeds available money and shows a negative remainder", () => {

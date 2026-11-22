@@ -1,4 +1,5 @@
 import { ProductWorkspace } from "@/components/ProductWorkspace";
+import { COVERAGE_LINES } from "@/lib/distribution/content";
 import { type SavedRow } from "@/components/SavedEvaluations";
 import { loadEvaluations } from "@/app/actions/evaluations";
 
@@ -20,6 +21,11 @@ export default async function ProductPage() {
         compra ni un puntaje. Dinero disponible después de obligaciones es lo
         que queda hoy después de restar esenciales y pagos ya prometidos.
       </p>
+      <div className="mt-4 max-w-2xl space-y-2 text-sm text-navy">
+        {COVERAGE_LINES.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+      </div>
       <p className="mt-3 rounded-xl bg-white px-4 py-3 text-sm text-muted">
         Vista previa local: al pulsar «Ver comparación» los montos no se envían.
         «Guardar evaluación» sí los guarda en tu cuenta, con correo y

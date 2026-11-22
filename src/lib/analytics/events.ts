@@ -12,6 +12,11 @@ export const PRODUCT_EVENTS = [
   "scenario_saved",
   "pricing_interest",
   "pricing_rejected",
+  "launch_viewed",
+  "asset_viewed",
+  "product_cta_clicked",
+  "share_clicked",
+  "content_series_viewed",
 ] as const;
 
 export type ProductEventName = (typeof PRODUCT_EVENTS)[number];
@@ -47,6 +52,15 @@ export const DETAIL_CODES = [
   "prefer_one_time_payment",
   "prefer_employer_to_pay",
   "other",
+  "launch",
+  "antes_de_comprar",
+  "lo_que_comprometes",
+  "comprar_vs_esperar",
+  "carousel",
+  "storyboard",
+  "card",
+  "product",
+  "copy_link",
 ] as const;
 
 export type DetailCode = (typeof DETAIL_CODES)[number];

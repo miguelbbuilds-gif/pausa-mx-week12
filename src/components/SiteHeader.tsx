@@ -6,6 +6,7 @@ import { createServerSupabase } from "@/lib/supabase/server";
 
 const links = [
   { href: "/", label: "Inicio" },
+  { href: "/launch", label: "Lanzamiento" },
   { href: "/product", label: "Mi Pausa" },
   { href: "/pricing", label: "Precios" },
   { href: "/about", label: "Acerca de" },
