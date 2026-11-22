@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ASSETS, CONCEPTS, SERIES } from "@/lib/distribution/content";
 
 const formatLabel = {
@@ -93,10 +94,13 @@ export function LaunchLibrary() {
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {asset.files.map((file) => (
-                  <img
+                  <Image
                     key={file}
                     src={file}
                     alt={asset.alt}
+                    width={1080}
+                    height={asset.id === "storyboard" ? 1920 : asset.id === "card" ? 1350 : 1080}
+                    unoptimized
                     className="h-auto w-full rounded-2xl border border-line bg-card"
                   />
                 ))}

@@ -48,4 +48,20 @@ describe("week 13 security boundaries in source", () => {
     expect(feedback).toContain("priority_requires_five_verified_sessions");
     expect(feedback).not.toContain("for select\n  to anon");
   });
+
+  it("extends week 15 events without deleting private rows", () => {
+    const sql = readFileSync(
+      path.join(process.cwd(), "supabase/migrations/20261122_distribution_events.sql"),
+      "utf8",
+    );
+    const lowered = sql.toLowerCase();
+    expect(lowered).not.toContain("drop table");
+    expect(lowered).not.toContain("delete from");
+    expect(lowered).not.toContain("service_role");
+    expect(sql).toContain("launch_viewed");
+    expect(sql).toContain("asset_viewed");
+    expect(sql).toContain("product_cta_clicked");
+    expect(sql).toContain("share_clicked");
+    expect(sql).toContain("content_series_viewed");
+  });
 });
