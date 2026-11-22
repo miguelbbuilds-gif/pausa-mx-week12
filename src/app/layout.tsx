@@ -18,11 +18,11 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "PAUSA MX — Antes de comprar, entiende lo que comprometes",
+    default: "PAUSA MX — Antes de comprar, haz una pausa",
     template: "%s · PAUSA MX",
   },
   description:
-    "En menos de un minuto, ve qué haría una compra con tu dinero disponible. Sin bancos, sin puntaje, sin que nadie decida por ti.",
+    "Compara qué cambia en tu dinero disponible con los datos que ingreses. PAUSA MX no determina si una compra es asequible.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

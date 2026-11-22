@@ -92,6 +92,11 @@ test("a complete cash scenario exposes its inputs and both interpretations", asy
   await page.getByRole("button", { name: "Ver comparación" }).click();
   await expect(page.getByRole("heading", { name: "Comprar ahora" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Esperar" })).toBeVisible();
-  await expect(page.getByText(/no es una recomendación/i)).toBeVisible();
-  await expect(page.getByText("-$5,500.00").first()).toBeVisible();
+  const comparison = page.locator("[aria-live='polite']");
+  await expect(comparison.getByText(/no es una recomendación/i)).toBeVisible();
+  await expect(comparison.getByText("-$5,500.00").first()).toBeVisible();
+  await expect(
+    comparison.getByText("El resultado no determina si una compra es asequible para ti."),
+  ).toBeVisible();
+  await expect(page.getByText(/te alcanzar/i)).toHaveCount(0);
 });

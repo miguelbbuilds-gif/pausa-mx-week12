@@ -179,10 +179,12 @@ export function evaluatePurchase(input: PurchaseInput): EvaluationResult {
   }
 
   const futureAffordabilityEstablished = false;
+  const coverageWarning =
+    "PAUSA MX calcula únicamente con los datos que ingresas. No verifica que hayas incluido todas tus obligaciones. El resultado no determina si una compra es asequible para ti.";
   const futureAffordabilityWarning =
     input.paymentMethod === "installments"
-      ? "Esta evaluación no establece si las mensualidades futuras te alcanzarán. Solo se usó el dinero que indicaste para este momento; no hay ingreso futuro en el cálculo y no se inventó una tasa de interés."
-      : null;
+      ? `${coverageWarning} Esta evaluación no establece un ingreso futuro y no se inventó una tasa de interés.`
+      : coverageWarning;
 
   const moneyAfterObligations = fromCents(moneyAfterObligationsCents);
   const immediateCost = fromCents(immediateCostCents);

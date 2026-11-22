@@ -10,8 +10,7 @@ export default function HomePage() {
         Antes de comprar, haz una pausa.
       </h1>
       <p className="mt-5 max-w-2xl text-xl text-muted">
-        En menos de un minuto ves qué haría una compra con tu dinero disponible,
-        tus gastos esenciales y lo que ya prometiste pagar.
+        Compara qué cambia en tu dinero disponible con los datos que ingreses.
       </p>
       <Link
         href="/product"
@@ -23,8 +22,8 @@ export default function HomePage() {
       <p className="mt-8 max-w-2xl text-sm text-muted">
         Ejemplo ficticio de demostración (no es un caso real): con $10,000
         disponibles, $4,000 de esenciales y $1,000 ya comprometidos, una compra
-        de contado de $2,500 dejaría $2,500. Tú puedes usar tus propias cifras
-        en Mi Pausa.
+        de contado         de $2,500 dejaría $2,500. Esa resta no determina si la compra es
+        asequible. Tú puedes usar tus propias cifras en Mi Pausa.
       </p>
 
       <section className="mt-14 grid gap-6 md:grid-cols-3">

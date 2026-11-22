@@ -1,5 +1,6 @@
 import { formatMxn } from "@/engine";
 import type { EvaluationResult } from "@/engine";
+import { COVERAGE_LINES } from "@/lib/distribution/content";
 
 export function ComparisonPanel({ result }: { result: EvaluationResult }) {
   if (!result.ok || !result.comparison) {
@@ -14,6 +15,7 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
             ))}
           </ul>
         ) : null}
+        <CoverageNotice />
       </section>
     );
   }
@@ -48,7 +50,7 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
         </dl>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
-        <article className="rounded-2xl border border-teal/40 bg-card p-5">
+        <article className="rounded-2xl border border-line bg-card p-5">
           <h2 className="font-display text-xl text-navy">Comprar ahora</h2>
           <p className="mt-2 text-sm text-muted">
             Aplica el costo inmediato y los pagos futuros que escribiste para esta compra.
@@ -108,18 +110,31 @@ export function ComparisonPanel({ result }: { result: EvaluationResult }) {
         ) : null}
       </div>
 
-      {result.futureAffordabilityWarning ? (
-        <div className="rounded-2xl border border-warning/30 bg-warning-bg p-5 text-warning">
-          <p className="font-medium">Sobre lo que no se puede afirmar</p>
-          <p className="mt-2 leading-relaxed">{result.futureAffordabilityWarning}</p>
-        </div>
-      ) : null}
+      <CoverageNotice extra={result.futureAffordabilityWarning} />
 
       <p className="text-sm text-muted">
         Esto no es una recomendación de comprar o de esperar. Es una comparación
         con los números que escribiste.
       </p>
     </section>
+  );
+}
+
+function CoverageNotice({ extra }: { extra?: string | null }) {
+  const futureNote = extra?.includes("ingreso futuro")
+    ? "Esta evaluación no establece un ingreso futuro y no se inventó una tasa de interés."
+    : null;
+
+  return (
+    <div className="mt-4 rounded-2xl border border-warning/30 bg-warning-bg p-5 text-warning">
+      <p className="font-medium">Sobre lo que no se puede afirmar</p>
+      {COVERAGE_LINES.map((line) => (
+        <p key={line} className="mt-2 leading-relaxed">
+          {line}
+        </p>
+      ))}
+      {futureNote ? <p className="mt-2 leading-relaxed">{futureNote}</p> : null}
+    </div>
   );
 }
 
